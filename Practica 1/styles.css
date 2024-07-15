@@ -1,0 +1,291 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header{
+  text-align: center;
+  font-size: 30px;
+  padding: 25px;
+  background: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+  color: white;
+}
+
+nav{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  background-color: #445EF2;
+}
+
+.bgNav ul{
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 22px;
+  padding: 12px;
+}
+
+.bgNav li{
+  list-style-type: none;
+}
+
+.bgNav a{
+  text-decoration: none;
+  color: white;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+.bgNav a:hover{
+  background-color: grey;
+}
+
+.Redes ul{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.Redes li{
+  list-style-type: none;
+  padding: 12px;
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+
+.Redes li:hover{
+  filter: grayscale(0%);
+  filter: drop-shadow(0 0 5px white);
+}
+
+main{
+  display: flex;
+  flex-flow: row wrap;
+  background-color: #082040;
+  color: white;
+}
+
+.SobreMi{
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 18px;
+}
+
+.apartado1{
+  margin: 0 25px 0 25px;
+}
+
+.apartado2{
+  text-align: center;
+  width: 55%;
+}
+
+.apartado2 p{
+  padding: 25px ;
+}
+
+.apartado2 a{
+  transition: 0.3s;
+}
+
+.apartado2 a:hover{
+  filter: drop-shadow(0 0 2px white);
+}
+
+#parrafoPresentacion{
+  color: white;
+  font-size: 22px;
+}
+
+.card{
+  margin: 15px;
+  background-color: #02070D;
+  width: 300px;
+  height: 370px;
+  box-shadow: rgba(255, 255, 255, 0.15) 0px 48px 100px 0px;
+  transition: 0.3s;
+  object-fit: cover;
+}
+
+.card:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.contenido{
+  text-align: center;
+  padding: 5px;
+}
+
+.apartado3{
+  background-color: #445EF2;
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 22px;
+}
+
+.apartado3 p{
+  margin: 5px;
+  padding: 8px;
+}
+
+.educacion{
+  padding: 15px;
+  color: white;
+}
+
+.educacion h3{
+  text-align: center;
+}
+
+.educacion li{
+  padding: 15px;
+}
+
+#certifiedtext{
+  padding: 10px;
+  background-color: #082040;
+  text-align: center;
+  font-size: 18px;
+}
+
+.imgCertificados{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  /* display: grid;
+  grid-template-columns: auto auto auto; */
+  justify-content: space-around;
+}
+
+#certifiedtext{
+  color: white;
+}
+
+.imgCertificados img{
+  width: 400px;
+  margin: 30px 10px 30px 10px;
+  transition: 0.3s;  
+}
+
+.imgCertificados img:hover{
+  box-shadow: rgb(255, 255, 255) 0px 10px 36px 0px, rgb(255, 255, 255) 0px 0px 0px 1px;
+}
+
+.ExpLaboral{
+  padding: 15px;
+  display: grid;
+  grid-template-columns: auto auto;
+  background: #445EF2;
+  color: white;
+  font-size: 18px;
+}
+
+.habilidades{
+  width: 270px;
+}
+
+#ImgHabilidades{
+  float: right;
+  width: 100px;
+  filter: invert(100%);
+}
+
+.habilidades img{
+  width: 80px;
+}
+
+.ExpLaboral li{
+  padding: 8px;
+}
+
+.ExpLaboral ul{
+  padding: 8px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.itemImg img{
+  padding: 8px;
+  width: 270px;
+  filter: drop-shadow(0 0 25px white);
+}
+
+.itemImg img:hover{
+  filter: drop-shadow(0 0 25px gray);
+  transition: 0.3s;
+}
+
+.contact{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  color: white;
+  background-color: #082040;
+  padding: 15px;
+  align-items: center;
+}
+
+.Contact-1 ul{
+  padding: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.Contact-1 li{
+  align-items: center;
+  padding: 5px;
+}
+
+.Contact-1 img{
+  padding: 15px 10px 0 0;
+  width: 30px;
+  filter: invert(100%);
+}
+
+.form{
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.User{
+  padding: 25px;
+  background-color: white;
+}
+
+.Email{
+  padding: 25px;
+  background-color: white;
+}
+
+.Mensaje{
+  padding: 25px;
+  background-color: white;
+}
+
+button{
+  padding: 25px;
+}
+
+.cajaFinal{
+  color: white;
+  justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 35px;
+  background: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+}
