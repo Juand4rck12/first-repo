@@ -1,7 +1,7 @@
 // Ver posibilidades de combinacion de strings
-const list = ['manzana','pera','uva','sandia'];
+const list = ['manzana', 'pera', 'uva', 'sandia'];
 
-function solution (list) {
+function solution(list) {
     result = [];
     for (let i = 0; i < list.length; i++) {
         for (let j = 0; j < list.length; j++) {
@@ -25,8 +25,8 @@ console.log(revString("satse omoc aloh"));
 
 const esPalin = (str => {
     let lowRegStr = str.toLowerCase();
-    let reverseStr = lowRegStr.split('').reverse().join(''); 
-  return reverseStr === lowRegStr;
+    let reverseStr = lowRegStr.split('').reverse().join('');
+    return reverseStr === lowRegStr;
 })
 
 console.log(esPalin('eye'))
@@ -41,7 +41,7 @@ const sumArr = (arr => {
     return totalArr
 })
 
-const array1 = [1,2,3,4,5,6,7,8,9,10]
+const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 console.log(sumArr(array1));
 
 // 4. Crea una funcion para encontrar el numero mayor en un arreglo
@@ -61,12 +61,12 @@ console.log(maxNum(array1));
 // 5. Crea una funcion para encontrar cuantas vocales hay en uno o varios strings
 
 const contVocales = (str => {
-    const voc = ['a' ,'e' ,'i' ,'o' ,'u' ];
+    const voc = ['a', 'e', 'i', 'o', 'u'];
     let vocList = 0;
-    let strMin =  str.toLowerCase();
+    let strMin = str.toLowerCase();
     let ordenedStr = strMin.split("");
     ordenedStr.forEach(str => {
-        if(voc.includes(str)){
+        if (voc.includes(str)) {
             vocList++
         }
     });
@@ -83,7 +83,7 @@ console.log(filtroPar(array1));
 
 // 7. Funcion para filtrar números impares de un array
 
-const filtroImpar = arr => arr.filter((imp)=> imp % 2 != 0);
+const filtroImpar = arr => arr.filter((imp) => imp % 2 != 0);
 
 console.log(filtroImpar(array1));
 
@@ -114,11 +114,11 @@ const valRep = (arr => {
     let arrOfReps = []; // Arreglo para almacenar los números que se repiten
     let arrOfDuplicates = []; // Arreglo para almacenar los números duplicados sin repetirlos
     arr.forEach(element => {
-        if (arrOfReps.includes(element)){ // Si el número ya está en el arreglo de números repetidos
+        if (arrOfReps.includes(element)) { // Si el número ya está en el arreglo de números repetidos
             if (!arrOfDuplicates.includes(element)) { // Si el número no está en el arreglo de números duplicados
                 arrOfDuplicates.push(element); // Agregar el número al arreglo de números duplicados
             }
-        }else{
+        } else {
             arrOfReps.push(element); // Agregar el número al arreglo de números repetidos
         }
     })
@@ -135,7 +135,7 @@ const filterLongWords = (str) => {
     const strSep = str.split(' ')
     let newWords = [];
     strSep.forEach(element => {
-        if(element < 3) {
+        if (element < 3) {
             newWords.push(element);
         }
     })
@@ -146,9 +146,9 @@ console.log(filterLongWords('Hola como estas alo que haces si'));
 
 // Hacer figuritas cuadradas 
 let size = 10;
-for(let i = 0; i < size; i++){
+for (let i = 0; i < size; i++) {
     let row = '';
-    for(let j = 0; j < size; j++){
+    for (let j = 0; j < size; j++) {
         row += '°'
     }
     console.log(row)
@@ -156,12 +156,12 @@ for(let i = 0; i < size; i++){
 // Escribe una función que tome un arreglo de números y retorne la suma de todos los números pares en el arreglo.
 // Ej: sumaPares([1, 2, 3, 4, 5, 6]) // debería retornar 12
 
-const numP = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,,17,18,19,20];
+const numP = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, , 17, 18, 19, 20];
 
-function sumarPares (arr) {
+function sumarPares(arr) {
     let total = 0;
     arr.forEach(num => {
-        if(num % 2 == 0){
+        if (num % 2 == 0) {
             total += num
         }
     })
@@ -178,10 +178,10 @@ const numeros = [9, 2, 14, 7, 12, 5, 1, 11, 8, 15, 4, 6, 13, 3, 10];
 
 for (let i = 0; i < numeros.length; i++) {
     for (let j = 0; j < numeros.length; j++) {
-        if (numeros[j] > numeros[j+1]) {
+        if (numeros[j] > numeros[j + 1]) {
             let aux = numeros[j];
-            numeros[j] = numeros[j+1];
-            numeros[j+1] = aux;   
+            numeros[j] = numeros[j + 1];
+            numeros[j + 1] = aux;
         }
     };
 }
@@ -190,21 +190,21 @@ console.log(numeros)
 
 
 // Funciones: 
-function mostrarMensaje (nombre,edad) {
-    if(edad != 18){
-      console.log(`${nombre} es menor de edad. Tiene ${edad} años.`)
-    }else{
-      console.log(`${nombre} es mayor de edad. Tiene ${edad} años.`)
+function mostrarMensaje(nombre, edad) {
+    if (edad != 18) {
+        console.log(`${nombre} es menor de edad. Tiene ${edad} años.`)
+    } else {
+        console.log(`${nombre} es mayor de edad. Tiene ${edad} años.`)
     }
-  }
-  
-  mostrarMensaje("Juan",17)
-  
-  const verificarEdad = (nombre,edad) => {
+}
+
+mostrarMensaje("Juan", 17)
+
+const verificarEdad = (nombre, edad) => {
     return edad !== 18 ? `${nombre} Es menor de edad` : `${nombre} Es mayor de edad`;
-  }
-  
-  console.log(verificarEdad("Martin",19))
+}
+
+console.log(verificarEdad("Martin", 19))
 
 // Codigo sincrono
 
@@ -226,9 +226,9 @@ function mostrarMensaje (nombre,edad) {
 
 // Callbacks
 
-const saludo1 = () =>  console.log('Hola! Soy Juan Diego');
-const saludo2 = () =>  console.log('Hola! Soy Juan Andres');
-const saludo3 = () =>  console.log('Hola! Soy Juan Martin');
+const saludo1 = () => console.log('Hola! Soy Juan Diego');
+const saludo2 = () => console.log('Hola! Soy Juan Andres');
+const saludo3 = () => console.log('Hola! Soy Juan Martin');
 const saludo4 = (name) => console.log(`HOLA! ${name}`);
 
 const mostrarSaludo = (callback) => {
@@ -242,13 +242,13 @@ mostrarSaludo(() => saludo4('Juan'));
 
 // Mas practica callbacks
 
-const names = ['juan', 'pedro', 'martin','leopoldo','arnulfo']
+const names = ['juan', 'pedro', 'martin', 'leopoldo', 'arnulfo']
 
 const modifyArray = ((array, callback) => {
     array.push('andres')
     callback()
 })
 
-modifyArray(names, function(){
+modifyArray(names, function () {
     console.log(names)
 })
