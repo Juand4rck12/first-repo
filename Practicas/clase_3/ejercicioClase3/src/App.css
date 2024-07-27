@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  max-width: 400px;
+  margin: 14px;
+  /* background-color: #fff; */
+  /* transition: box-shadow: ; */
+}
