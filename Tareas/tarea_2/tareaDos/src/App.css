@@ -24,7 +24,7 @@
 
 .card:hover {
   cursor: pointer;
-  max-width: 410px;
+  /* max-width: 410px; */
   backdrop-filter: blur(22px);
   box-shadow: 7px 10px 66px 2px #C6EFF5;
 }
