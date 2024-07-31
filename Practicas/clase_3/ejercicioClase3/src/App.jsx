@@ -1,18 +1,14 @@
 import './App.css'
-import { Nombre } from './components/nombre/nombreComponents'
-import { Descripcion } from './components/descripcion/descripcionComponents'
-import { Imagen } from './components/images/imagenComponents'
+import { Tarjeta } from './components/tarjeta/tarjetaComponents'
 
 function App() {
 
   return (
-    <div className='card'>
-      <Imagen />
-      <Nombre name = 'Rick'/>
-      <Descripcion descripcion = 'Hola como estas'/>
-      <p>
-        Hola
-      </p>
+    <div>
+      <Tarjeta name='RICK 1' descripcion='Rick 1'/>
+      <Tarjeta name='RICK 2' descripcion='Rick 2'/>
+      <Tarjeta name='RICK 3' descripcion='Rick 3'/>
+      <Tarjeta name='RICK 4' descripcion='Rick 4'/>
     </div>
   )
 }
