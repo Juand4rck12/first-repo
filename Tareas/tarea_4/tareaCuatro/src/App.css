@@ -1,0 +1,39 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+.card {
+  backdrop-filter: blur(12px);
+  border: 2px solid black;
+  border-radius: 22px;
+  overflow: hidden;
+  max-width: 270px;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.card h2 {
+  font-size: 30px;
+}
+
+#details {
+  font-size: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+.card:hover {
+  cursor: pointer;
+  backdrop-filter: blur(22px);
+  box-shadow: 7px 10px 66px 2px #C6EFF5;
+}
+
+.container{
+  padding: 15px;
+}
