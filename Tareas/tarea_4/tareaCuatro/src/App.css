@@ -3,37 +3,38 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 
 .card {
-  backdrop-filter: blur(12px);
-  border: 2px solid black;
-  border-radius: 22px;
-  overflow: hidden;
-  max-width: 270px;
-  transition: 0.3s;
-  text-align: center;
+  border: 1px solid black;
+  backdrop-filter: blur(22px);
+  margin: 5px;
+  color: black;
+  border-radius: 15px;
+  max-width: 280px ;
 }
 
-.card h2 {
-  font-size: 30px;
-}
-
-#details {
-  font-size: 20px;
-}
-
-img {
+.card img{
   width: 100%;
 }
 
-.card:hover {
-  cursor: pointer;
-  backdrop-filter: blur(22px);
-  box-shadow: 7px 10px 66px 2px #C6EFF5;
+.card p {
+  font-size: 18px;
 }
 
-.container{
-  padding: 15px;
+.papa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.tituloPagina{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

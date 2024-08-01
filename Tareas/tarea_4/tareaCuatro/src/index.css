@@ -5,9 +5,10 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-image: url(../public/rick_and_morty_wallpaper_4k.jpg);
-  background-position: center;
+  background-image: url(rick_and_morty_wallpaper_4k.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,9 +22,4 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
