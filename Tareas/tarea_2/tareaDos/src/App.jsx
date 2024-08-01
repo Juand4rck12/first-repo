@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css'
-import { Image } from './components/imagen/imageComponent';
-import { Title } from './components/titulo/titleComponent';
-import { Descripcion } from './components/descripcion/descripcionComponent';
-import { Details } from './components/details/detailsComponent';
+import CharacterCard from './components/card/characterCard';
 
 function App() {
+  
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [gender, setGender] = useState("");
+  const [status, setStatus] = useState("");
+  
+  const rickAndMortyCharacterId = 1;
+
+  useEffect( ()=> {
+    fetch("https://rickandmortyapi.com/api/character/" + rickAndMortyCharacterId)
+    .then((response)=> response.json())
+    .then((result) => {
+
+      console.log(result, '=> resultado')
+
+      setName(result.name)
+      setImage(result.image)
+      setGender(result.gender)
+      setStatus(result.status)
+    })
+  })
+
   return (
-    <div className='card'>
-      <Image />
-      <div className="container">
-        <Title title='SpiderMan Miles Morales' />
-        <Descripcion descripcion='Es un personaje de cómic creado por Marvel Comics. Es un adolescente que adquiere superpoderes similares a los de Spider-Man después de ser picado por una araña genéticamente modificada.' />
-        <Details genre = 'masculino' status = 'vivo / personaje ficticio.'/>
-      </div>
+    <div>
+      <h1 id='firstTitle'>PERSONAJES DE RICK AND MORTY</h1>
+      <div className='card'>
+        <CharacterCard 
+        name={name}
+        image={image}
+        gender={gender}
+        status={status} /> 
+       </div>
     </div>
   );
 }

@@ -5,26 +5,31 @@
   text-align: center;
 }
 
-#img {
-  width: 100%;
-}
 
 .card {
   backdrop-filter: blur(12px);
   border: 2px solid black;
   border-radius: 22px;
   overflow: hidden;
-  max-width: 400px;
+  max-width: 270px;
   transition: 0.3s;
+  text-align: center;
 }
 
-.card p {
-  text-align: justify;
+.card h2 {
+  font-size: 30px;
+}
+
+#details {
+  font-size: 20px;
+}
+
+img {
+  width: 100%;
 }
 
 .card:hover {
   cursor: pointer;
-  /* max-width: 410px; */
   backdrop-filter: blur(22px);
   box-shadow: 7px 10px 66px 2px #C6EFF5;
 }
