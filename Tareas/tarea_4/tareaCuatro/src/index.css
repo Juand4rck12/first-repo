@@ -7,8 +7,8 @@
   color: rgba(255, 255, 255, 0.87);
   background-image: url(rick_and_morty_wallpaper_4k.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,6 +20,6 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
