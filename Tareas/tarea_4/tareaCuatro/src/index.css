@@ -6,9 +6,11 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-image: url(rick_and_morty_wallpaper_4k.jpg);
-  background-size: cover;
+  background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
