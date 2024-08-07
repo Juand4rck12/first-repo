@@ -14,7 +14,8 @@
 
 .card {
   border: 2.5px solid #0F161F;
-  backdrop-filter: blur(22px);
+  background: rgb(0,0,0,0.4);
+  backdrop-filter: blur(12px);
   filter: brightness(1); /* brillo */
   margin: 16px;
   color: white;
