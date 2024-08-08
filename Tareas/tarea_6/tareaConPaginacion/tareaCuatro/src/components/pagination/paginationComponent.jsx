@@ -10,6 +10,7 @@ const PaginationComponent = ({ currentPage, totalPages, onPageChange }) => {
       >
         🢀 Previous
       </button>
+      
       <button 
         className="next"
         onClick={() => onPageChange(currentPage + 1)}
