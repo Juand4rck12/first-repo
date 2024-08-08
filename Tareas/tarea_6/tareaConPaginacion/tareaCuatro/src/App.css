@@ -1,0 +1,83 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.cards-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  border: 2.5px solid #0F161F;
+  background: rgb(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+  filter: brightness(1); /* brillo */
+  margin: 10px;
+  color: white;
+  border-radius: 15px;
+  max-width: 260px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 38px -5px rgba(195,230,232,1);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card p {
+  font-size: 18px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 22px;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background: rgb(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+}
+
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination li {
+  list-style-type: none;
+}
+
+.pagination button {
+  border: none;
+  color: #F9F8F5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover:not(.active) {
+  cursor: pointer;
+  background-color: #0077fe;
+}
+
+.pagination .active {
+  background-color: #31345D;
+  color: white;
+}
+
+.pagination .prev, .pagination .next {
+  font-weight: bold;
+  color: #F9F8F5;
+}
