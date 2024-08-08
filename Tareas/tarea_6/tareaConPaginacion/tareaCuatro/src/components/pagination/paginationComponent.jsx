@@ -12,7 +12,7 @@ const PaginationComponent = ({ currentPage, totalPages, onPageChange }) => {
       </button>
       <div className='pagination-numbers'>
         <span>
-          {`${currentPage}`}
+          Actual page: {`${currentPage}`}
         </span>
       </div>
       <button
