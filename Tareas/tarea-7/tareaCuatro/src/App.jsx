@@ -9,6 +9,7 @@ import NavBarComponent from "./components/navBar/navBarComponent";
 function App() {
 
   return (
+    <div className="homePage">
     <BrowserRouter>
       <NavBarComponent />
         <Routes>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/*" element={<NotFoundPage />}></Route>
         </Routes>
     </BrowserRouter>
+    </div>
   )
 }
 
