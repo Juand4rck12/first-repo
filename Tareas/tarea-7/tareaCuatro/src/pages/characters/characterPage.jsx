@@ -5,7 +5,7 @@ import '../../App.css'
 const CharacterPage = () => {
   return (
     <div>
-      <h1>PERSONAJES DE RICK AND MORTY</h1>
+      <h1>RICK AND MORTY CHARACTERS</h1>
       <div>
         <RickAndMortyCard />
       </div>

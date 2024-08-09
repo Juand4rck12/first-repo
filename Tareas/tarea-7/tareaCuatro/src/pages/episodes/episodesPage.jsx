@@ -32,6 +32,9 @@ const EpisodesPage = () => {
 
   return (
     <>
+      <div>
+        <h1>RICK AND MORTY EPISODES</h1>
+      </div>
       <div className="cards-page">
         {episodes.map((episode) => (
           <EpisodeCard

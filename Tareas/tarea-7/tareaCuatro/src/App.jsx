@@ -9,17 +9,17 @@ import NavBarComponent from "./components/navBar/navBarComponent";
 function App() {
 
   return (
-    <div className="homePage">
-    <BrowserRouter>
-      <NavBarComponent />
+    <>
+      <BrowserRouter>
+        <NavBarComponent />
         <Routes>
-          <Route path="/" element={<HomePage /> }></Route>
+          <Route path="/" element={<HomePage />}></Route>
           <Route path="/characters" element={<CharacterPage />}></Route>
           <Route path="/episodes" element={<EpisodesPage />}></Route>
           <Route path="/*" element={<NotFoundPage />}></Route>
         </Routes>
-    </BrowserRouter>
-    </div>
+      </BrowserRouter>
+    </>
   )
 }
 
