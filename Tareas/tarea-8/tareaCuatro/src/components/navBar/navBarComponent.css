@@ -1,0 +1,60 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    background-color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+.navBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navBar li {
+    list-style-type: none;
+}
+
+.navBar li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+}
+
+.navBar li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 10px; /* Ajusta este valor para posicionar el subrayado */
+    left: 16px; /* Alineado con el inicio del texto */
+    background-color: #535bf2;
+    transition: width 0.3s ease-in-out;
+}
+
+.navBar li a:hover::after {
+    width: calc(100% - 32px); /* Cubre el ancho del texto */
+}
+
+.navBar li a:hover {
+    background-color: #111;
+    color: #535bf2;
+}
+
+.navBar li a.active {
+    background-color: #111;
+    color: #535bf2;
+    font-weight: bold;
+}
+
+.navBar li a.active::after {
+    width: calc(100% - 32px);
+}
