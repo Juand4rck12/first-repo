@@ -49,8 +49,8 @@ nav{
 .Redes li{
   list-style-type: none;
   padding: 12px;
-  filter: grayscale(100%);
-  transition: 0.3s;
+  /* filter: grayscale(100%); */
+  transition: 0.6s;
 }
 
 .Redes li:hover{
