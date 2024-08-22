@@ -255,7 +255,7 @@ modifyArray(names, function () {
 
 // Tablas de multiplicar del 1 al 10 
 for (let i = 2; i <= 10; i++) {
-    console.log(`---Tabla del ${i}---`)
+    console.log(`--Tabla del ${i}--`)
     for (let j = 1; j <= 10; j++) {
         console.log(`${i} * ${j} == ${j * i}`)
     }
