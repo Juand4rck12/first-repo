@@ -19,3 +19,43 @@ console.log(libros[0])
 libros.map((libro) => console.log({ titulo: libro.titulo, autor: libro.autor }))
 console.log("------------")
 
+// Punto 2: Cálculo de Estadísticas Básicas: Dado el siguiente array de estudiantes y utilizando un bucle for:
+console.log("\n---Punto 2---")
+const estudiantes = [
+    { nombre: "Pedro", edad: 29, promedio: 7.9 },
+    { nombre: "Ana", edad: 33, promedio: 8.9 },
+    { nombre: "Pablo", edad: 32, promedio: 9.5 },
+    { nombre: "Juan", edad: 25, promedio: 6.0 },
+    { nombre: "Maria", edad: 28, promedio: 7.3 },
+    { nombre: "Andres", edad: 45, promedio: 8.7 },
+];
+
+/* 
+- Calcula la suma de las edades de todos los estudiantes en el array
+- Calcula el promedio de edad de los estudiantes.
+- Imprime en la consola tanto la suma como el promedio de edad de los estudiantes. */
+
+let edadEst = 0;
+estudiantes.forEach((estudiante) => edadEst += estudiante.edad);
+
+console.log(`Edad de todos los estudiantes: ${edadEst} \nPromedio de edades: ${edadEst / 6}`);
+/* 
+- RETO (Opcional): Si quieres retarte te invitamos a crear un programa que sea capaz de recorrer
+el array estudiantes de el punto 2 y encontrar a el/la estudiante con el mayor promedio, utilizando
+un bucle for o cualquer otro método visto en clase
+*/
+
+let promMayor = estudiantes[0].promedio;
+let namePromMayor = estudiantes[0].nombre;
+
+estudiantes.forEach(element => {
+    if (element.promedio > promMayor) {
+        promMayor = element.promedio
+        namePromMayor = element.nombre
+    }
+});
+
+console.log(`El mayor promedio es de ${namePromMayor} con un promedio de ${promMayor}`)
+
+console.log("------------")
+
