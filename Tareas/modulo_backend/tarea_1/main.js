@@ -59,3 +59,21 @@ console.log(`El mayor promedio es de ${namePromMayor} con un promedio de ${promM
 
 console.log("------------")
 
+// Punto 3: Búsqueda y Filtrado de Datos: Dado el siguiente array de productos:
+console.log("\n---Punto 3---")
+let productos = [
+    { nombre: 'Camisa', categoria: 'Ropa', precio: 20 },
+    { nombre: 'Computadora', categoria: 'Electrónica', precio: 800 },
+    { nombre: 'Zapatos', categoria: 'Ropa', precio: 50 },
+    { nombre: 'Teléfono', categoria: 'Electrónica', precio: 300 }
+];
+
+/* }
+- Utilizando filter debes filtrar productos que tengan la categoría 'Ropa' e imprimirlos en pantalla.
+- Filtra los productos con precio mayor de 30 en un nuevo array llamado preciosMayores. 
+*/
+
+const ropaProds = productos.filter((producto) => producto.categoria === 'Ropa');
+const preciosMayores = productos.filter((producto) => producto.precio > 30);
+console.log(ropaProds);
+console.log(preciosMayores);
