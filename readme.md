@@ -2,6 +2,6 @@
 
 Aca subire archivos de practica, tanto de git, como de codificacion en general >:)))
 
-Tambien estaran presentes las tareas del modulo 5 del Bootcamp de desarrollador FullStack JavaScript de KambCode, en la carpeta "Tareas."
+Tambien estaran presentes las tareas del Bootcamp de desarrollador FullStack JavaScript de KambCode, en la carpeta "Tareas."
 
 _By: Juan Diego Orrego._
