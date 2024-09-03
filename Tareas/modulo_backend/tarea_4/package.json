@@ -1,0 +1,16 @@
+{
+  "name": "tarea_4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculadora.js",
+  "type": "module",
+  "scripts": {
+    "start": "node calculadora.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan Diego Orrego Vargas",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
