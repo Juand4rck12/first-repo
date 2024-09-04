@@ -52,6 +52,7 @@ const calculadora = () => {
             return;
     }
 
+    console.log(`Parametros recibidos: ${num1} ${operacion} ${num2}`)
     console.log(`Resultado: ${resultado}`);
 }
 
