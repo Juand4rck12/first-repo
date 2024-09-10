@@ -1,7 +1,7 @@
 import http from 'http';
 import 'dotenv/config';
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT // || 3002;
 
 const products = [
     { id: 1, name: 'Laptop', price: 999.99, category: 'Electronics' },
@@ -9,24 +9,20 @@ const products = [
     { id: 3, name: 'Pen', price: 1.99, category: 'Stationery' }
 ];
 
-const findProductById = (idP) => {
-    const product = products.find(p => p.id === idP);
-    return product ? JSON.stringify(product) : null;
-}
-
 http.createServer((req, res) => {
 
-    const urlParts = req.url.split('/');
-
-    switch (urlParts[1]) {
-        case '':
+    switch (req.url) {
+        case '/':
             res.write('Estas en el home :)');
             break;
-        case 'products':
+        case '/products':
             res.write(JSON.stringify(products))
             break;
-        case 'products':
-            
+        // case '/products/:id':
+        //     const id = req.url.id
+        //     const result = products.filter((product) => product.id === id)
+        //     res.write(result)
+        //     break;
         default:
             res.writeHead(404, { 'Content-Type': 'text/plain' })
             res.write('Error 404: Not Found')
