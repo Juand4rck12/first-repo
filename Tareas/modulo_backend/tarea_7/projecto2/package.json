@@ -1,5 +1,5 @@
 {
-  "name": "tarea_7",
+  "name": "projecto2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,11 +9,9 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Juan Diego Orrego Vargas",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^3.1.4"
-  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.20.0"
