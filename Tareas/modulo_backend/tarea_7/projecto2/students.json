@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "age": 20,
+    "major": "Computer Science"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "age": 22,
+    "major": "Mathematics"
+  },
+  {
+    "id": 3,
+    "name": "Alice Johnson",
+    "age": 21,
+    "major": "Physics"
+  },
+  {
+    "id": 4,
+    "name": "Bob Brown",
+    "age": 23,
+    "major": "History"
+  },
+  {
+    "id": 5,
+    "name": "Charlie Davis",
+    "age": 19,
+    "major": "Biology"
+  },
+  {
+    "id": 6,
+    "name": "Emily Evans",
+    "age": 24,
+    "major": "Chemistry"
+  },
+  {
+    "id": 7,
+    "name": "David Wilson",
+    "age": 22,
+    "major": "Engineering"
+  },
+  {
+    "id": 8,
+    "name": "Sophia Martinez",
+    "age": 20,
+    "major": "Literature"
+  },
+  {
+    "id": 9,
+    "name": "Michael Clark",
+    "age": 21,
+    "major": "Economics"
+  },
+  {
+    "id": 10,
+    "name": "Laura Adams",
+    "age": 23,
+    "major": "Philosophy"
+  }
+]
