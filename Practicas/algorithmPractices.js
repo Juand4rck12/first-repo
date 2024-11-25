@@ -281,9 +281,9 @@ function genPassword(longitud) {
 console.log(genPassword(10));
 
 // Calcular el factorial de un número:
-function calFactorial(valor){
+function calFactorial(valor) {
     let result = 1;
-    for(let i = 1; i <= valor; i++){
+    for (let i = 1; i <= valor; i++) {
         result *= i;
     }
     return `${valor}!: ${result}`;
