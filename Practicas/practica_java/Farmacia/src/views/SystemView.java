@@ -71,6 +71,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelProducts.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/box.png"))); // NOI18N
         jLabelProducts.setText("  Productos");
 
         javax.swing.GroupLayout jPanelProductsLayout = new javax.swing.GroupLayout(jPanelProducts);
@@ -92,6 +93,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.add(jPanelProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 35));
 
         jLabelPurchases.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelPurchases.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/payment-method.png"))); // NOI18N
         jLabelPurchases.setText("  Compras");
 
         javax.swing.GroupLayout jPanelPurchasesLayout = new javax.swing.GroupLayout(jPanelPurchases);
@@ -113,6 +115,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.add(jPanelPurchases, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 35));
 
         jLabelCustomers.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clientes.png"))); // NOI18N
         jLabelCustomers.setText("  Clientes");
 
         javax.swing.GroupLayout jPanelCustomersLayout = new javax.swing.GroupLayout(jPanelCustomers);
@@ -134,6 +137,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.add(jPanelCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 200, 35));
 
         jLabelEmployes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelEmployes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/empledos.png"))); // NOI18N
         jLabelEmployes.setText("  Empleados");
 
         javax.swing.GroupLayout jPanelEmployesLayout = new javax.swing.GroupLayout(jPanelEmployes);
@@ -155,6 +159,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.add(jPanelEmployes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 200, 35));
 
         jLabelSuppliers.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelSuppliers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/proveedor.png"))); // NOI18N
         jLabelSuppliers.setText("  Proveedores");
 
         javax.swing.GroupLayout jPanelSuppliersLayout = new javax.swing.GroupLayout(jPanelSuppliers);
@@ -176,6 +181,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.add(jPanelSuppliers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 35));
 
         jLabelCategories.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelCategories.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/categorias.png"))); // NOI18N
         jLabelCategories.setText("  Categorias");
 
         javax.swing.GroupLayout jPanelCategoriesLayout = new javax.swing.GroupLayout(jPanelCategories);
@@ -197,6 +203,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.add(jPanelCategories, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, 35));
 
         jLabelReports.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reportes.png"))); // NOI18N
         jLabelReports.setText("  Reportes");
 
         javax.swing.GroupLayout jPanelReportsLayout = new javax.swing.GroupLayout(jPanelReports);
@@ -218,6 +225,7 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1.add(jPanelReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 200, 35));
 
         jLabelSettings.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configuracion.png"))); // NOI18N
         jLabelSettings.setText("  Configuración");
 
         javax.swing.GroupLayout jPanelSettingsLayout = new javax.swing.GroupLayout(jPanelSettings);
