@@ -108,4 +108,20 @@ public class CustomersDao {
             return false;
         }
     }
+    
+    // Eliminar cliente
+    public boolean deleteCustomerQuery (int id) {
+        // Elimina al empleado de la tabla cuyo id coincida con el del parametro recibido
+        String query = "DELETE FROM customers WHERE id = " + id;
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.execute();
+            return true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No puede eliminar un cliente que tenga relación con otra tabla",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 }
