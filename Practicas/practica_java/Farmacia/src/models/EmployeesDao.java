@@ -196,11 +196,81 @@ public class EmployeesDao {
             }
         } catch (SQLException e) {
             // Manejo de excepciones en caso de error
-            JOptionPane.showMessageDialog(null, "Error al listar empleados: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al listar empleados: " + e.getMessage(),
+            "Error", JOptionPane.ERROR_MESSAGE);
         }
 
         // Retornar la lista de empleados
         return list_employees;
     }
 
+    // Mofidicar empleado
+    public boolean updateEmployeeQuery(Employees employee) {
+        String query = "UPDATE INTO employees SET "
+                + "full_name = ?, username = ?, address = ?, telephone = ?, email = ?, rol = ?, updated = ? "
+                + "WHERE id = ?";
+
+        // Generar la marca de tiempo actual para los campos de creación y actualización
+        Timestamp datetime = new Timestamp(new Date().getTime());
+
+        try {
+            // Establecer conexión con la base de datos y preparar la consulta
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+
+            // Asignar valores a los parámetros de la consulta
+            pst.setString(1, employee.getFull_name());
+            pst.setString(2, employee.getUsername());
+            pst.setString(3, employee.getAddress());
+            pst.setString(4, employee.getTelephone());
+            pst.setString(5, employee.getEmail());
+            pst.setString(6, employee.getRol());
+            pst.setTimestamp(7, datetime); // Fecha de actualización
+            pst.setInt(8, employee.getId());
+            
+            // Ejecutar la consulta
+            pst.execute();
+            return true;
+        } catch (SQLException e) {
+            
+            // Manejo de excepciones en caso de error con mensaje al usuario
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos del empleado: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
+    // Eliminar empleado
+    public boolean deleteEmployeeQuery (int id) {
+        // Elimina al empleado de la tabla cuyo id coincida con el del parametro recibido
+        String query = "DELETE FROM employees WHERE id = " + id;
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.execute();
+            return true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No puede eliminar un empleado que tenga relación con otra tabla",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
+    // Cambiar la contraseña
+    public boolean updateEmployeePassword (Employees employee) {
+        /* Se cambia la contraseña solo si el usuario que esta intentando cambiarla coincide con el
+           con el usuario que esta logeado. */
+        String query = "UPDATE employees SET password = ? WHERE username = '" + username_user + "'";
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.setString(1, employee.getPassword());
+            pst.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error al modificar la contraseña " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 }
