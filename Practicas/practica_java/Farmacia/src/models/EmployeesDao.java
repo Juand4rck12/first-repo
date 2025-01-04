@@ -1,31 +1,35 @@
 package models;
 
+import java.sql.Timestamp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet; // Conjunto de datos que obtenemos al enviar la consulta
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- * Fecha: 02/01/2025 
- * Autor: Juan Diego Orrego Vargas 
- * Objetivo: Esta clase implementa el patrón de diseño DAO (Data Access Object)
- * para la tabla "employees" de la base de datos. Su principal objetivo es centralizar todas
+ * Fecha: 02/01/2025
+ * Autor: Juan Diego Orrego Vargas
+ * Objetivo: Esta clase implementa el patrón de diseño DAO (Data Access Object) para la tabla
+ * "employees" de la base de datos. Su principal objetivo es centralizar todas
  * las operaciones de acceso a datos relacionadas con los empleados, como
  * consultas, inserciones, actualizaciones y eliminaciones, asegurando una
  * separación clara entre la lógica de negocio y la lógica de acceso a datos.
  *
- * Funcionalidades principales: 
- * - Ejecutar consultas SQL relacionadas con empleados. 
- * - Obtener datos de la base de datos y llenar objetos de tipo Employees. 
- * - Facilitar la reutilización del código y el mantenimiento. 
- * - Separar responsabilidades, delegando el acceso a la base de datos a esta clase.
+ * Funcionalidades principales: - Ejecutar consultas SQL relacionadas con
+ * empleados. - Obtener datos de la base de datos y llenar objetos de tipo
+ * Employees. - Facilitar la reutilización del código y el mantenimiento. -
+ * Separar responsabilidades, delegando el acceso a la base de datos a esta
+ * clase.
  *
  * Relación con otras clases: - ConnectionMySQL: Proporciona la conexión a la
  * base de datos. - Employees: Representa un modelo de empleado, donde se
  * almacenan los datos obtenidos de la base de datos.
-
+ *
  */
-
 public class EmployeesDao {
 
     // Instanciar la conexión a la base de datos
@@ -85,7 +89,7 @@ public class EmployeesDao {
                 rol_user = employee.getRol(); // Guardar rol
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             // Mostrar un mensaje de error en caso de excepción con un icono de advertencia
             JOptionPane.showMessageDialog(
                     null,
@@ -98,4 +102,105 @@ public class EmployeesDao {
         // Devolver el objeto empleado, aunque esté vacío si no se encontró
         return employee;
     }
+
+    // Registrar empleado
+    /**
+     * Método para registrar un nuevo empleado en la base de datos.
+     *
+     * @param employee Objeto de tipo Employees con los datos del empleado a
+     * registrar.
+     * @return true si el registro fue exitoso; false en caso contrario.
+     *
+     * Detalles relevantes: - El método utiliza una consulta parametrizada para
+     * prevenir inyecciones SQL. - Se incluye un timestamp para registrar la
+     * fecha y hora de creación y actualización. - La conexión es establecida
+     * mediante ConnectionMySQL.
+     */
+    public boolean registerEmployeeQuery(Employees employee) {
+        String query = "INSERT INTO employees "
+                + "(id, full_name, username, address, telephone, email, password, rol, created, updated) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        // Generar la marca de tiempo actual para los campos de creación y actualización
+        Timestamp datetime = new Timestamp(new Date().getTime());
+
+        try {
+            // Establecer conexión con la base de datos y preparar la consulta
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+
+            // Asignar valores a los parámetros de la consulta
+            pst.setInt(1, employee.getId());
+            pst.setString(2, employee.getFull_name());
+            pst.setString(3, employee.getUsername());
+            pst.setString(4, employee.getAddress());
+            pst.setString(5, employee.getTelephone());
+            pst.setString(6, employee.getEmail());
+            pst.setString(7, employee.getPassword());
+            pst.setString(8, employee.getRol());
+            pst.setTimestamp(9, datetime); // Fecha de creación
+            pst.setTimestamp(10, datetime); // Fecha de actualización
+
+            // Ejecutar la consulta
+            pst.execute();
+            return true;
+        } catch (SQLException e) {
+            // Manejo de excepciones en caso de error con mensaje al usuario
+            JOptionPane.showMessageDialog(null, "Error al registrar el empleado: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    // Listar empleados
+    /**
+     * Método para listar empleados de la base de datos.
+     *
+     * @param value Cadena de búsqueda opcional. Si está vacía, se listan todos
+     * los empleados.
+     * @return Lista de objetos Employees con la información obtenida de la base
+     * de datos.
+     *
+     * Detalles relevantes: - Si se proporciona un valor, se filtra la búsqueda
+     * por ID. - Utiliza una estructura de tipo List para almacenar múltiples
+     * empleados. - Este método es útil para mostrar información en tablas o
+     * interfaces gráficas.
+     */
+    public List<Employees> listEmployeesQuery(String value) {
+        List<Employees> list_employees = new ArrayList<>();
+        String query = "SELECT * FROM employees ORDER BY rol ASC"; // Consulta para obtener todos los empleados
+        String query_search_employee = "SELECT * FROM employees WHERE id LIKE '%" + value + "%'"; // Consulta con filtro
+
+        try {
+            // Establecer conexión y preparar la consulta según el valor de búsqueda
+            conn = cn.getConnection();
+            if (value.equalsIgnoreCase("")) {
+                pst = conn.prepareStatement(query);
+                rs = pst.executeQuery(); // Obtener todos los empleados
+            } else {
+                pst = conn.prepareStatement(query_search_employee);
+                rs = pst.executeQuery(); // Filtrar por ID
+            }
+
+            // Recorrer los resultados y mapearlos a objetos Employees
+            while (rs.next()) {
+                Employees employee = new Employees();
+                employee.setId(rs.getInt("id"));
+                employee.setFull_name(rs.getString("fullname"));
+                employee.setUsername(rs.getString("username"));
+                employee.setAddress(rs.getString("address"));
+                employee.setTelephone(rs.getString("telephone"));
+                employee.setEmail(rs.getString("email"));
+                employee.setRol(rs.getString("rol"));
+                list_employees.add(employee); // Agregar a la lista
+            }
+        } catch (SQLException e) {
+            // Manejo de excepciones en caso de error
+            JOptionPane.showMessageDialog(null, "Error al listar empleados: " + e.toString());
+        }
+
+        // Retornar la lista de empleados
+        return list_employees;
+    }
+
 }
