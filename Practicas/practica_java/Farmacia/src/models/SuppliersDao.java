@@ -85,4 +85,50 @@ public class SuppliersDao {
         }
         return list_suppliers;
     }
+    
+    // Modificar proveedor
+    public boolean updateSupplierQuery (Suppliers supplier) {
+        String query = "UPDATE suppliers SET"
+                + " name = ?, description = ?, address = ?, telephone = ?, email = ?, city = ?, updated = ? "
+                + "WHERE id = ?";
+        
+        Timestamp datetime = new Timestamp(new Date().getTime());
+        
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.setString(1, supplier.getName());
+            pst.setString(2, supplier.getDescription());
+            pst.setString(3, supplier.getAddress());
+            pst.setString(4, supplier.getTelephone());
+            pst.setString(5, supplier.getEmail());
+            pst.setString(6, supplier.getCity());
+            pst.setTimestamp(7, datetime);
+            pst.setInt(8, supplier.getId());
+            pst.execute();
+            return true;
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos del proveedor " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
+    // Eliminar proveedor
+    public boolean deleteSupplierQuery (int id) {
+        String query = "DELETE FROM suppliers WHERE ID = " + id;
+        
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.execute();
+            return true;
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No puedes eliminar un proveedor que tiene relación con otra tabla " + 
+                    e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 }
