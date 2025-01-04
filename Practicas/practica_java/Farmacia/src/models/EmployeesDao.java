@@ -195,8 +195,7 @@ public class EmployeesDao {
             }
         } catch (SQLException e) {
             // Manejo de excepciones en caso de error
-            JOptionPane.showMessageDialog(null, "Error al listar empleados: " + e.getMessage(),
-            "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, e.toString(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
         // Retornar la lista de empleados
