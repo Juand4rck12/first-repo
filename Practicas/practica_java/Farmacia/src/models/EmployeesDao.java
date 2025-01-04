@@ -31,7 +31,6 @@ import javax.swing.JOptionPane;
  *
  */
 public class EmployeesDao {
-
     // Instanciar la conexión a la base de datos
     ConnectionMySQL cn = new ConnectionMySQL();
     Connection conn; // Para establecer la conexión

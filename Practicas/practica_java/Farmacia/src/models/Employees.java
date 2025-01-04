@@ -4,7 +4,6 @@
  */
 package models;
 
-
 public class Employees {
     private int id;
     private String full_name;
