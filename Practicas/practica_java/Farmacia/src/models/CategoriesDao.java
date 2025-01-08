@@ -51,14 +51,13 @@ public class CategoriesDao {
         String query = "SELECT * FROM categories";
         String query_search_category = "SELECT * FROM categories WHERE name LIKE '% " + value + "%'";
         try {
-            // Establecer conexión y preparar la consulta según el valor de búsqueda
             conn = cn.getConnection();
             if (value.equalsIgnoreCase("")) {
                 pst = conn.prepareStatement(query);
-                rs = pst.executeQuery(); // Obtener todos los empleados
+                rs = pst.executeQuery(); 
             } else {
                 pst = conn.prepareStatement(query_search_category);
-                rs = pst.executeQuery(); // Filtrar por ID
+                rs = pst.executeQuery(); 
             }
             
             while(rs.next()) {

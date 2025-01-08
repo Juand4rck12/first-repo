@@ -61,10 +61,10 @@ public class SuppliersDao {
             conn = cn.getConnection();
             if (value.equalsIgnoreCase("")) {
                 pst = conn.prepareStatement(query);
-                rs = pst.executeQuery(); // Obtener todos los empleados
+                rs = pst.executeQuery();
             } else {
                 pst = conn.prepareStatement(query_search_supplier);
-                rs = pst.executeQuery(); // Filtrar por ID
+                rs = pst.executeQuery();
             }
             
             while (rs.next()) {
