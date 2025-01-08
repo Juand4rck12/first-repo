@@ -92,4 +92,138 @@ public class ProductsDao {
         }
         return list_products;
     }
+    
+     // Modificar producto
+    public boolean updateProductQuery(Products product) {
+        String query = "UPDATE products SET "
+                + "code = ?, name = ?, description = ?, unitprice = ?, updated = ?, category_id = ? "
+                + "WHERE id = ?";
+
+        Timestamp datetime = new Timestamp(new Date().getTime());
+
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.setInt(1, product.getCode());
+            pst.setString(2, product.getName());
+            pst.setString(3, product.getDescription());
+            pst.setDouble(4, product.getUnit_price());
+            pst.setTimestamp(5, datetime);
+            pst.setInt(6, product.getCategory_id());
+            pst.setInt(7, product.getId());
+            pst.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos del producto " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
+    // Eliminar producto
+    public boolean deleteProductQuery(int id) {
+        // Elimina al empleado de la tabla cuyo id coincida con el del parametro recibido
+        String query = "DELETE FROM products WHERE id = " + id;
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.execute();
+            return true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No puede eliminar un producto que tenga relación con otra tabla",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
+    // Buscar productos
+    public Products searchProducts(int id) {
+        String query = "SELECT prod.*, cat.name AS category_name FROM products pro "
+                + "INNER JOIN categories cat ON prod.category_id = cat.id "
+                + "WHERE prod.id = ?";
+        Products product = new Products();
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                product.setId(rs.getInt("id"));
+                product.setCode(rs.getInt("code"));
+                product.setName(rs.getString("name"));
+                product.setDescription(rs.getString("description"));
+                product.setUnit_price(rs.getDouble("unit_price"));
+                product.setCategory_id(rs.getInt("category_id"));
+                product.setCategory_name(rs.getString("category_name"));
+                
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return product;
+    }
+    
+    // Buscar producto por codigo
+    public Products searchCode(int code) {
+        String query = "SELECT prod.id, prod.name FROM products prod WHERE prod.code = ?";
+        Products product = new Products();
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.setInt(1, code);
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("name"));               
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return product;
+    }
+    
+    // Traer cantidad de productos
+    public Products searchId(int id) {
+        String query = "SELECT prod.product_quantity FROM products prod WHERE prod.id = ?";
+        Products product = new Products();
+        
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                product.setProduct_quantity(rs.getInt("product_quantity"));
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return product;
+    }
+    
+    // Actualizar stock
+    public boolean updateStockQuery(int amount, int product_id) {
+        String query = "UPDATE products SET product_quantity = ? WHERE ID = ?";
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            pst.setInt(1, amount);
+            pst.setInt(2, product_id);
+            pst.execute();
+            
+            return true;
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 }
