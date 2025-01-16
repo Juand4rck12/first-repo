@@ -14,9 +14,9 @@ import views.SystemView;
 
 public class LoginController implements ActionListener {
 
-    Employees employee;
-    EmployeesDao employees_dao;
-    LoginView login_view;
+    private Employees employee;
+    private EmployeesDao employees_dao;
+    private LoginView login_view;
 
     public LoginController(Employees employee, EmployeesDao employees_dao, LoginView login_view) {
         this.employee = employee;
