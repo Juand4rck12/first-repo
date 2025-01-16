@@ -4,22 +4,34 @@
  */
 package views;
 
+import controllers.LoginController;
+import models.Employees;
+import models.EmployeesDao;
+
 /**
  *
  * @author Juan Diego Orrego Vargas
  */
 public class LoginView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginView
-     */
+    Employees employee = new Employees();
+    EmployeesDao employees_dao = new EmployeesDao();
+
     public LoginView() {
         initComponents();
-        setSize(930,415);
+
+        // Controlador del login
+        LoginController employee_login = new LoginController(employee, employees_dao, this);
+        setSize(930, 415);
         setResizable(false);
         setTitle("Ingresar al sistema");
         setLocationRelativeTo(null);
         this.repaint();
+
+        // Agregar ActionListener al campo de contraseña
+        txt_password.addActionListener(evt -> {
+            btn_enter.doClick(); // Simula un clic en el botón "Ingresar"
+        });
     }
 
     /**

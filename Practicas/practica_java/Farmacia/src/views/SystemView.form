@@ -611,6 +611,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_logoutActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="890" y="35" width="-1" height="30"/>
@@ -691,11 +694,11 @@
                               <Component id="txt_product_description" min="-2" pref="165" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="63" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btn_delete_product" min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="btn_cancel_product" min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="btn_update_product" min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="btn_register_product" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btn_delete_product" pref="100" max="32767" attributes="0"/>
+                              <Component id="btn_cancel_product" pref="100" max="32767" attributes="0"/>
+                              <Component id="btn_register_product" pref="100" max="32767" attributes="0"/>
+                              <Component id="btn_update_product" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       </Group>
