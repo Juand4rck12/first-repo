@@ -185,7 +185,7 @@ public class EmployeesDao {
             while (rs.next()) {
                 Employees employee = new Employees();
                 employee.setId(rs.getInt("id"));
-                employee.setFull_name(rs.getString("fullname"));
+                employee.setFull_name(rs.getString("full_name"));
                 employee.setUsername(rs.getString("username"));
                 employee.setAddress(rs.getString("address"));
                 employee.setTelephone(rs.getString("telephone"));
