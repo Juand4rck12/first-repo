@@ -204,7 +204,7 @@ public class EmployeesDao {
 
     // Mofidicar empleado
     public boolean updateEmployeeQuery(Employees employee) {
-        String query = "UPDATE INTO employees SET "
+        String query = "UPDATE employees SET "
                 + "full_name = ?, username = ?, address = ?, telephone = ?, email = ?, rol = ?, updated = ? "
                 + "WHERE id = ?";
 
