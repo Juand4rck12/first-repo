@@ -8,6 +8,8 @@ import controllers.EmployeesController;
 import controllers.SettingsController;
 import models.Employees;
 import models.EmployeesDao;
+import static models.EmployeesDao.full_name_user;
+import static models.EmployeesDao.rol_user;
 
 /**
  *
@@ -25,8 +27,8 @@ public class SystemView extends javax.swing.JFrame {
         initComponents();
         setSize(1208,680);
         setResizable(false);
-        setTitle("Panel de administración");
         setLocationRelativeTo(null);
+        titleInterface();
         
         // Controlador del settings
         SettingsController settings = new SettingsController(this);
@@ -35,6 +37,13 @@ public class SystemView extends javax.swing.JFrame {
         // Controlador de empleados
         EmployeesController employee_account = new EmployeesController(employee, employeesDao, this);
         employee_account.listAllEmployees();
+    }
+    
+    public String titleInterface() {
+        setTitle("Panel - " + rol_user);
+        label_name_employee.setText(full_name_user);
+        label_name_rol.setText(rol_user);
+        return rol_user.trim();
     }
 
     /**
@@ -71,6 +80,8 @@ public class SystemView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btn_foto = new javax.swing.JButton();
         btn_logout = new javax.swing.JButton();
+        label_name_rol = new javax.swing.JLabel();
+        label_name_employee = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -283,7 +294,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 35));
+        jPanel1.add(jPanelProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 40));
 
         jPanelSales.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -308,7 +319,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 200, 35));
+        jPanel1.add(jPanelSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 200, 40));
 
         jPanelPurchases.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -333,7 +344,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelPurchases, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 35));
+        jPanel1.add(jPanelPurchases, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 40));
 
         jPanelCustomers.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -358,7 +369,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 200, 35));
+        jPanel1.add(jPanelCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 200, 40));
 
         jPanelEmployes.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -383,7 +394,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelEmployes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 35));
+        jPanel1.add(jPanelEmployes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 40));
 
         jPanelSuppliers.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -408,7 +419,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelSuppliers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 200, 35));
+        jPanel1.add(jPanelSuppliers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 200, 40));
 
         jPanelCategories.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -433,7 +444,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelCategories, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 35));
+        jPanel1.add(jPanelCategories, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 40));
 
         jPanelReports.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -458,7 +469,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 200, 35));
+        jPanel1.add(jPanelReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 200, 40));
 
         jPanelSettings.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -483,7 +494,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 200, 35));
+        jPanel1.add(jPanelSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 200, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 200, 580));
 
@@ -515,6 +526,14 @@ public class SystemView extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 35, -1, 30));
+
+        label_name_rol.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        label_name_rol.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(label_name_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 130, 20));
+
+        label_name_employee.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        label_name_employee.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(label_name_employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 130, 20));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 1010, 100));
 
@@ -1952,8 +1971,10 @@ public class SystemView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTable jTable1;
+    public javax.swing.JLabel label_name_employee;
+    public javax.swing.JLabel label_name_rol;
     public javax.swing.JTable products_table;
     public javax.swing.JTable purchases_table;
     public javax.swing.JTable sales_table;
