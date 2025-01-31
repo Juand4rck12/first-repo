@@ -34,10 +34,10 @@ public class CustomersDao {
             pst.setInt(1, customer.getId());
             pst.setString(2, customer.getFull_name());
             pst.setString(3, customer.getAddress());
-            pst.setString(3, customer.getTelephone());
-            pst.setString(4, customer.getEmail());
-            pst.setTimestamp(5, datetime);
+            pst.setString(4, customer.getTelephone());
+            pst.setString(5, customer.getEmail());
             pst.setTimestamp(6, datetime);
+            pst.setTimestamp(7, datetime);
             pst.execute();
             return true;
             
@@ -69,7 +69,7 @@ public class CustomersDao {
                 Customers customer = new Customers();
                 customer.setId(rs.getInt("id"));
                 customer.setFull_name(rs.getString("full_name"));
-                customer.setTelephone(rs.getString("address"));
+                customer.setAddress(rs.getString("address"));
                 customer.setTelephone(rs.getString("telephone"));
                 customer.setEmail(rs.getString("email"));
                 list_customers.add(customer);

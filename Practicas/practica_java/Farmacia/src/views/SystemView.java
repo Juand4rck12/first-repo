@@ -4,8 +4,11 @@
  */
 package views;
 
+import controllers.CustomersController;
 import controllers.EmployeesController;
 import controllers.SettingsController;
+import models.Customers;
+import models.CustomersDao;
 import models.Employees;
 import models.EmployeesDao;
 import static models.EmployeesDao.full_name_user;
@@ -18,9 +21,11 @@ import static models.EmployeesDao.rol_user;
 public class SystemView extends javax.swing.JFrame {
 
     // Empleados
-    
     Employees employee = new Employees();
     EmployeesDao employeesDao = new EmployeesDao();
+    // Clientes
+    Customers customer = new Customers();
+    CustomersDao customersDao = new CustomersDao();
     
     
     public SystemView() {
@@ -37,6 +42,10 @@ public class SystemView extends javax.swing.JFrame {
         // Controlador de empleados
         EmployeesController employee_account = new EmployeesController(employee, employeesDao, this);
         employee_account.listAllEmployees();
+        
+        // Controlador de clientes
+        CustomersController customers_account = new CustomersController(customer, customersDao, this);
+        customers_account.listAllCustomers();
     }
     
     public String titleInterface() {
@@ -1147,7 +1156,7 @@ public class SystemView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Identificación", "Nombre", "Teléfono", "Dirección", "Correo"
+                "Identificación", "Nombre", "Dirección", "Teléfono", "Correo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
