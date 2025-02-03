@@ -49,7 +49,7 @@ public class CategoriesDao {
     public List listCategorieQuery(String value) {
         List<Categories> list_categories = new ArrayList();
         String query = "SELECT * FROM categories";
-        String query_search_category = "SELECT * FROM categories WHERE name LIKE '% " + value + "%'";
+        String query_search_category = "SELECT * FROM categories WHERE name LIKE '%" + value + "%'";
         try {
             conn = cn.getConnection();
             if (value.equalsIgnoreCase("")) {
