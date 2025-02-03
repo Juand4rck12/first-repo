@@ -7,12 +7,15 @@ package views;
 import controllers.CustomersController;
 import controllers.EmployeesController;
 import controllers.SettingsController;
+import controllers.SuppliersController;
 import models.Customers;
 import models.CustomersDao;
 import models.Employees;
 import models.EmployeesDao;
 import static models.EmployeesDao.full_name_user;
 import static models.EmployeesDao.rol_user;
+import models.Suppliers;
+import models.SuppliersDao;
 
 /**
  *
@@ -26,6 +29,9 @@ public class SystemView extends javax.swing.JFrame {
     // Clientes
     Customers customer = new Customers();
     CustomersDao customersDao = new CustomersDao();
+    // Proveedores
+    Suppliers supplier = new Suppliers();
+    SuppliersDao supplierDao = new SuppliersDao();
     
     
     public SystemView() {
@@ -46,6 +52,11 @@ public class SystemView extends javax.swing.JFrame {
         // Controlador de clientes
         CustomersController customers_account = new CustomersController(customer, customersDao, this);
         customers_account.listAllCustomers();
+        
+        // Controlador de proveedores
+        SuppliersController supplier_account = new SuppliersController(supplier, supplierDao, this);
+        supplier_account.listAllSuppliers();
+        
     }
     
     public String titleInterface() {
@@ -1471,9 +1482,9 @@ public class SystemView extends javax.swing.JFrame {
         jPanel8.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 20, 920, 270));
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel40.setText("Buscar:");
-        jPanel8.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
-        jPanel8.add(txt_search_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 160, 30));
+        jLabel40.setText("Buscar por nombre:");
+        jPanel8.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+        jPanel8.add(txt_search_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 160, 30));
 
         suppliers_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
