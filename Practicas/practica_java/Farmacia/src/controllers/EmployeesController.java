@@ -136,7 +136,7 @@ public class EmployeesController implements ActionListener, MouseListener, KeyLi
                 int id = Integer.parseInt(views.employees_table.getValueAt(row, 0).toString());
                 int question = JOptionPane.showConfirmDialog(null, "¿En realidad quieres eliminar a este empleado?");
                 
-                if (question == 0 && employeesDao.deleteEmployeeQuery(id) != false) {
+                if (question == 0 && employeesDao.deleteEmployeeQuery(id)) {
                     cleanFields();
                     views.btn_register_employee.setEnabled(true);
                     views.txt_employee_password.setEnabled(true);
