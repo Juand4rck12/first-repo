@@ -119,6 +119,7 @@ public class SuppliersController implements ActionListener, MouseListener, KeyLi
                     cleanTable(); // limpiar tabla
                     cleanFields(); // limpiar campos
                     listAllSuppliers(); // Listar proveedores
+                    views.btn_register_supplier.setEnabled(true); // Habilitar boton de registrar
                     JOptionPane.showMessageDialog(null, "Proveedor eliminado con exito");
                 }
             }
