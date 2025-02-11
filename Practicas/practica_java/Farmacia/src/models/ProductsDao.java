@@ -25,8 +25,8 @@ public class ProductsDao {
     // Registrar producto
     public boolean registerProductQuery(Products product) {
         String query = "INSERT INTO products "
-                + "(code, name, description, unitprice, created, updated, category_id) VALUES "
-                + "(?, ?, ?, ?, ?, ?, ?";
+                + "(code, name, description, unit_price, created, updated, category_id) VALUES "
+                + "(?, ?, ?, ?, ?, ?, ?)";
 
         Timestamp datetime = new Timestamp(new Date().getTime());
 
@@ -54,27 +54,27 @@ public class ProductsDao {
     // Listar producto
     public List listProductsQuery(String value) {
         List<Products> list_products = new ArrayList();
-        String query = "SELECT prod.*, cat.name AS category_name FROM products prod, categories cat"
+        String query = "SELECT prod.*, cat.name AS category_name FROM products prod, categories cat "
                 + "WHERE prod.category_id = cat.id";
         String query_search_product = "SELECT prod.*, cat.name AS category_name FROM products prod "
                 + "INNER JOIN categories cat ON prod.category_id = cat.id "
-                + "WHERE pro.name LIKE '%" + value + "%'";
-        
+                + "WHERE prod.name LIKE '%" + value + "%'";
+
         try {
             conn = cn.getConnection();
-            
+
             // Si la persona no esta buscando un producto en especifico, se listan todos los productos
             if (value.equalsIgnoreCase("")) {
                 pst = conn.prepareStatement(query);
                 rs = pst.executeQuery();
-            
-            // Si busca uno en especifico se le muestra ese producto
+
+                // Si busca uno en especifico se le muestra ese producto
             } else {
                 pst = conn.prepareStatement(query_search_product);
-                rs = pst.executeQuery(); 
+                rs = pst.executeQuery();
             }
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 Products product = new Products();
                 product.setId(rs.getInt("id"));
                 product.setCode(rs.getInt("code"));
@@ -85,18 +85,18 @@ public class ProductsDao {
                 product.setCategory_name(rs.getString("category_name"));
                 list_products.add(product);
             }
-            
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al listar productos " + e.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
         return list_products;
     }
-    
-     // Modificar producto
+
+    // Modificar producto
     public boolean updateProductQuery(Products product) {
         String query = "UPDATE products SET "
-                + "code = ?, name = ?, description = ?, unitprice = ?, updated = ?, category_id = ? "
+                + "code = ?, name = ?, description = ?, unit_price = ?, updated = ?, category_id = ? "
                 + "WHERE id = ?";
 
         Timestamp datetime = new Timestamp(new Date().getTime());
@@ -121,7 +121,7 @@ public class ProductsDao {
             return false;
         }
     }
-    
+
     // Eliminar producto
     public boolean deleteProductQuery(int id) {
         // Elimina al empleado de la tabla cuyo id coincida con el del parametro recibido
@@ -137,19 +137,20 @@ public class ProductsDao {
             return false;
         }
     }
-    
+
     // Buscar productos
     public Products searchProducts(int id) {
-        String query = "SELECT prod.*, cat.name AS category_name FROM products pro "
-                + "INNER JOIN categories cat ON prod.category_id = cat.id "
-                + "WHERE prod.id = ?";
+        String query = "SELECT pro.*, cat.name AS category_name FROM products pro "
+                        + "INNER JOIN categories cat ON pro.category_id = cat.id "
+                        + "WHERE pro.id = ?";
+
         Products product = new Products();
         try {
             conn = cn.getConnection();
             pst = conn.prepareStatement(query);
             pst.setInt(1, id);
             rs = pst.executeQuery();
-            
+
             if (rs.next()) {
                 product.setId(rs.getInt("id"));
                 product.setCode(rs.getInt("code"));
@@ -158,15 +159,15 @@ public class ProductsDao {
                 product.setUnit_price(rs.getDouble("unit_price"));
                 product.setCategory_id(rs.getInt("category_id"));
                 product.setCategory_name(rs.getString("category_name"));
-                
+
             }
-            
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         return product;
     }
-    
+
     // Buscar producto por codigo
     public Products searchCode(int code) {
         String query = "SELECT prod.id, prod.name FROM products prod WHERE prod.code = ?";
@@ -176,39 +177,39 @@ public class ProductsDao {
             pst = conn.prepareStatement(query);
             pst.setInt(1, code);
             rs = pst.executeQuery();
-            
+
             if (rs.next()) {
                 product.setId(rs.getInt("id"));
-                product.setName(rs.getString("name"));               
+                product.setName(rs.getString("name"));
             }
-            
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         return product;
     }
-    
+
     // Traer cantidad de productos
     public Products searchId(int id) {
         String query = "SELECT prod.product_quantity FROM products prod WHERE prod.id = ?";
         Products product = new Products();
-        
+
         try {
             conn = cn.getConnection();
             pst = conn.prepareStatement(query);
             pst.setInt(1, id);
             rs = pst.executeQuery();
-            
+
             if (rs.next()) {
                 product.setProduct_quantity(rs.getInt("product_quantity"));
             }
-            
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         return product;
     }
-    
+
     // Actualizar stock
     public boolean updateStockQuery(int amount, int product_id) {
         String query = "UPDATE products SET product_quantity = ? WHERE ID = ?";
@@ -218,9 +219,9 @@ public class ProductsDao {
             pst.setInt(1, amount);
             pst.setInt(2, product_id);
             pst.execute();
-            
+
             return true;
-            
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return false;

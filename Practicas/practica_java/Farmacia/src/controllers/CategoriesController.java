@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Categories;
 import models.CategoriesDao;
+import models.DynamicComboBox;
 import static models.EmployeesDao.rol_user;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import views.SystemView;
 
 public class CategoriesController implements ActionListener, MouseListener, KeyListener {
@@ -39,6 +41,8 @@ public class CategoriesController implements ActionListener, MouseListener, KeyL
         this.views.txt_category_name.addKeyListener(this); // Para detectar "Esc" en el campo de texto
         this.views.categories_table.addKeyListener(this);  // Para detectar "Esc" en la tabla
         this.views.jLabelCategories.addMouseListener(this);
+        getCategoryName();
+        AutoCompleteDecorator.decorate(views.cmb_product_category);
     }
 
     @Override
@@ -191,4 +195,14 @@ public class CategoriesController implements ActionListener, MouseListener, KeyL
         views.txt_category_id.setText("");
         views.txt_category_name.setText("");
     }
-}
+    
+    // Metodo para mostrar el nombre de las categorias
+    public void getCategoryName() {
+        List<Categories> list = categoryDao.listCategorieQuery(views.txt_search_category.getText());
+        for (int i = 0; i < list.size(); i++) {
+            int id = list.get(i).getId();
+            String name = list.get(i).getName();
+            views.cmb_product_category.addItem(new DynamicComboBox(id, name));
+        }
+    }
+ }

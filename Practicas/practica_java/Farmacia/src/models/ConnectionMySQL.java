@@ -7,6 +7,7 @@ package models;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  * Fecha: 02/01/2025
@@ -31,6 +32,7 @@ public class ConnectionMySQL {
         } catch (ClassNotFoundException e) {
             System.err.println("Ha ocurrido un ClassNotFoundException " + e.getMessage());
         } catch (SQLException e ) {
+            JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos");
             System.err.println("Ha ocurrido un SQLException " + e.getMessage());
         }
         return conn;

@@ -7,6 +7,7 @@ package views;
 import controllers.CategoriesController;
 import controllers.CustomersController;
 import controllers.EmployeesController;
+import controllers.ProductsController;
 import controllers.SettingsController;
 import controllers.SuppliersController;
 import models.Categories;
@@ -17,6 +18,8 @@ import models.Employees;
 import models.EmployeesDao;
 import static models.EmployeesDao.full_name_user;
 import static models.EmployeesDao.rol_user;
+import models.Products;
+import models.ProductsDao;
 import models.Suppliers;
 import models.SuppliersDao;
 
@@ -38,6 +41,9 @@ public class SystemView extends javax.swing.JFrame {
     // Categorias
     Categories category = new Categories();
     CategoriesDao categoryDao = new CategoriesDao();
+    // Productos
+    Products product = new Products();
+    ProductsDao productDao = new ProductsDao();
     
     
     public SystemView() {
@@ -67,6 +73,9 @@ public class SystemView extends javax.swing.JFrame {
         CategoriesController category_section = new CategoriesController(category, categoryDao, this);
         category_section.listAllCategories();
         
+        // Controlador de productos
+        ProductsController product_section = new ProductsController(product, productDao, this);
+        product_section.listAllProducts();
     }
     
     public String titleInterface() {
@@ -122,11 +131,11 @@ public class SystemView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txt_product_code = new javax.swing.JTextField();
-        txtx_product_name = new javax.swing.JTextField();
+        txt_product_name = new javax.swing.JTextField();
         txt_product_unit_price = new javax.swing.JTextField();
         txt_product_description = new javax.swing.JTextField();
         txt_product_id = new javax.swing.JTextField();
-        cmb_product_categorie = new javax.swing.JComboBox<>();
+        cmb_product_category = new javax.swing.JComboBox<>();
         btn_register_product = new javax.swing.JButton();
         btn_update_product = new javax.swing.JButton();
         btn_delete_product = new javax.swing.JButton();
@@ -619,7 +628,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_product_code, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtx_product_name, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_product_name, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_product_unit_price, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -629,7 +638,7 @@ public class SystemView extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_product_id, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmb_product_categorie, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmb_product_category, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_product_description, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -654,8 +663,8 @@ public class SystemView extends javax.swing.JFrame {
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel7)
-                            .addComponent(txtx_product_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmb_product_categorie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_product_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb_product_category, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(50, 50, 50))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
@@ -679,11 +688,11 @@ public class SystemView extends javax.swing.JFrame {
         jPanel4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 20, 920, 270));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("Buscar:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 60, -1));
+        jLabel9.setText("Buscar por nombre:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 150, -1));
 
         txt_search_product.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel4.add(txt_search_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 160, 30));
+        jPanel4.add(txt_search_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 160, 30));
 
         products_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1896,7 +1905,7 @@ public class SystemView extends javax.swing.JFrame {
     public javax.swing.JButton btn_update_product;
     public javax.swing.JButton btn_update_supplier;
     public javax.swing.JTable categories_table;
-    public javax.swing.JComboBox<Object> cmb_product_categorie;
+    public javax.swing.JComboBox<Object> cmb_product_category;
     public javax.swing.JComboBox<String> cmb_purchase_supplier;
     public javax.swing.JComboBox<String> cmb_rol;
     public javax.swing.JComboBox<String> cmb_supplier_city;
@@ -2044,6 +2053,7 @@ public class SystemView extends javax.swing.JFrame {
     public javax.swing.JTextField txt_product_code;
     public javax.swing.JTextField txt_product_description;
     public javax.swing.JTextField txt_product_id;
+    public javax.swing.JTextField txt_product_name;
     public javax.swing.JTextField txt_product_unit_price;
     public javax.swing.JTextField txt_purchase_amount;
     public javax.swing.JTextField txt_purchase_id;
@@ -2073,6 +2083,5 @@ public class SystemView extends javax.swing.JFrame {
     public javax.swing.JTextField txt_supplier_id;
     public javax.swing.JTextField txt_supplier_name;
     public javax.swing.JTextField txt_supplier_telephone;
-    public javax.swing.JTextField txtx_product_name;
     // End of variables declaration//GEN-END:variables
 }
