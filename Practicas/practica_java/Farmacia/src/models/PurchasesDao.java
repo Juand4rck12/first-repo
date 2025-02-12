@@ -49,8 +49,8 @@ public class PurchasesDao {
     public boolean registerPurchaseDetailQuery(int purchase_id, double purchase_price, int purchase_amount,
             double purchase_subtotal, int product_id) {
         String query = "INSERT INTO purchase_details "
-                + "(purchase_id, purchase_price, purchase_amount, purchase_subtotal, purchase_date, product_id) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                + "(purchase_id, purchase_price, purchase_amount, purchase_subtotal, product_id) "
+                + "VALUES (?, ?, ?, ?, ?)";
         
         Timestamp datetime = new Timestamp(new Date().getTime());
         
@@ -61,14 +61,13 @@ public class PurchasesDao {
             pst.setDouble(2, purchase_price);
             pst.setInt(3, purchase_amount);
             pst.setDouble(4, purchase_subtotal);
-            pst.setTimestamp(5, datetime);
-            pst.setInt(6, product_id);
+            pst.setInt(5, product_id);
             pst.execute();
             
             return true;
             
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al registrar los detalles de la compra " + e.getMessage(),
+            JOptionPane.showMessageDialog(null, "Error al registrar los detalles de la compra " + e,
                     "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -77,7 +76,7 @@ public class PurchasesDao {
     // Obtener id de la compra
     public int purchaseId() {
         int id = 0;
-        String query = "SELECT MAX (id) as id FROM purchases";
+        String query = "SELECT MAX(id) as id FROM purchases";
         
         try {
             conn = cn.getConnection();

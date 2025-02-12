@@ -8,6 +8,7 @@ import controllers.CategoriesController;
 import controllers.CustomersController;
 import controllers.EmployeesController;
 import controllers.ProductsController;
+import controllers.PurchasesController;
 import controllers.SettingsController;
 import controllers.SuppliersController;
 import models.Categories;
@@ -20,6 +21,8 @@ import static models.EmployeesDao.full_name_user;
 import static models.EmployeesDao.rol_user;
 import models.Products;
 import models.ProductsDao;
+import models.Purchases;
+import models.PurchasesDao;
 import models.Suppliers;
 import models.SuppliersDao;
 
@@ -44,6 +47,9 @@ public class SystemView extends javax.swing.JFrame {
     // Productos
     Products product = new Products();
     ProductsDao productDao = new ProductsDao();
+    // Compras
+    Purchases purchase = new Purchases();
+    PurchasesDao purchaseDao = new PurchasesDao();
     
     
     public SystemView() {
@@ -76,6 +82,10 @@ public class SystemView extends javax.swing.JFrame {
         // Controlador de productos
         ProductsController product_section = new ProductsController(product, productDao, this);
         product_section.listAllProducts();
+        
+        // Controlador de compras
+        PurchasesController purchase_section = new PurchasesController(purchase, purchaseDao, this);
+        
     }
     
     public String titleInterface() {
@@ -1906,7 +1916,7 @@ public class SystemView extends javax.swing.JFrame {
     public javax.swing.JButton btn_update_supplier;
     public javax.swing.JTable categories_table;
     public javax.swing.JComboBox<Object> cmb_product_category;
-    public javax.swing.JComboBox<String> cmb_purchase_supplier;
+    public javax.swing.JComboBox<Object> cmb_purchase_supplier;
     public javax.swing.JComboBox<String> cmb_rol;
     public javax.swing.JComboBox<String> cmb_supplier_city;
     public javax.swing.JTable customers_table;
