@@ -85,6 +85,7 @@ public class SystemView extends javax.swing.JFrame {
         
         // Controlador de compras
         PurchasesController purchase_section = new PurchasesController(purchase, purchaseDao, this);
+        purchase_section.listAllPurchases();
         
     }
     
@@ -107,10 +108,10 @@ public class SystemView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanelProducts = new javax.swing.JPanel();
         jLabelProducts = new javax.swing.JLabel();
-        jPanelSales = new javax.swing.JPanel();
-        jLabelSales = new javax.swing.JLabel();
         jPanelPurchases = new javax.swing.JPanel();
         jLabelPurchases = new javax.swing.JLabel();
+        jPanelSales = new javax.swing.JPanel();
+        jLabelSales = new javax.swing.JLabel();
         jPanelCustomers = new javax.swing.JPanel();
         jLabelCustomers = new javax.swing.JLabel();
         jPanelEmployes = new javax.swing.JPanel();
@@ -346,31 +347,6 @@ public class SystemView extends javax.swing.JFrame {
 
         jPanel1.add(jPanelProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 40));
 
-        jPanelSales.setBackground(new java.awt.Color(18, 45, 61));
-
-        jLabelSales.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelSales.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelSales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ventas.png"))); // NOI18N
-        jLabelSales.setText("  Ventas");
-
-        javax.swing.GroupLayout jPanelSalesLayout = new javax.swing.GroupLayout(jPanelSales);
-        jPanelSales.setLayout(jPanelSalesLayout);
-        jPanelSalesLayout.setHorizontalGroup(
-            jPanelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelSales, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
-        );
-        jPanelSalesLayout.setVerticalGroup(
-            jPanelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelSales)
-                .addContainerGap())
-        );
-
-        jPanel1.add(jPanelSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 200, 40));
-
         jPanelPurchases.setBackground(new java.awt.Color(18, 45, 61));
 
         jLabelPurchases.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -394,7 +370,32 @@ public class SystemView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanelPurchases, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 40));
+        jPanel1.add(jPanelPurchases, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 200, 40));
+
+        jPanelSales.setBackground(new java.awt.Color(18, 45, 61));
+
+        jLabelSales.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelSales.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelSales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ventas.png"))); // NOI18N
+        jLabelSales.setText("  Ventas");
+
+        javax.swing.GroupLayout jPanelSalesLayout = new javax.swing.GroupLayout(jPanelSales);
+        jPanelSales.setLayout(jPanelSalesLayout);
+        jPanelSalesLayout.setHorizontalGroup(
+            jPanelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelSales, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
+        );
+        jPanelSalesLayout.setVerticalGroup(
+            jPanelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelSales)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanelSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 40));
 
         jPanelCustomers.setBackground(new java.awt.Color(18, 45, 61));
 
@@ -940,34 +941,33 @@ public class SystemView extends javax.swing.JFrame {
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel55)
-                    .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel20Layout.createSequentialGroup()
-                            .addComponent(jLabel53)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_sale_product_name))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel20Layout.createSequentialGroup()
-                            .addComponent(jLabel52)
-                            .addGap(27, 27, 27)
-                            .addComponent(txt_sale_product_code, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel61)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txt_sale_product_id)))
-                    .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel20Layout.createSequentialGroup()
-                            .addComponent(jLabel56)
-                            .addGap(76, 76, 76)
-                            .addComponent(txt_sale_total_to_pay, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                        .addGroup(jPanel20Layout.createSequentialGroup()
-                            .addComponent(jLabel54)
-                            .addGap(106, 106, 106)
-                            .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txt_sale_customer_id, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                .addComponent(txt_sale_quantity)))))
-                .addGap(18, 41, Short.MAX_VALUE)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(txt_sale_product_code, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_sale_product_id))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addContainerGap(25, Short.MAX_VALUE)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addGap(86, 86, 86)
+                                .addComponent(txt_sale_total_to_pay))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel53)
+                                    .addComponent(jLabel52)
+                                    .addComponent(jLabel54)
+                                    .addComponent(jLabel55))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_sale_product_name)
+                                    .addComponent(txt_sale_customer_id, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                    .addComponent(txt_sale_quantity, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                .addGap(18, 35, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addComponent(jLabel59)
@@ -985,7 +985,7 @@ public class SystemView extends javax.swing.JFrame {
                         .addComponent(jLabel58)
                         .addGap(94, 94, 94)
                         .addComponent(txt_sale_subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_add_product_sale, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_confirm_sale, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
