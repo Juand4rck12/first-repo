@@ -299,3 +299,18 @@ console.log(calFactorial(5));
 //     console.log("Tu nombre es: " + data.toString());
 //     process.exit();
 // })
+
+function crearContador(inicial) {
+    let contador = inicial; // La variable 'contador' está en el "contexto" de la función externa
+
+    // La función interna es un closure que tiene acceso a 'contador'
+    return function () {
+        return contador++; // Retorna el valor actual y luego lo incrementa
+    };
+}
+
+const contador = crearContador(5);
+console.log(contador());
+console.log(contador());
+console.log(contador());
+console.log(contador());
