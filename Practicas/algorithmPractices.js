@@ -314,3 +314,62 @@ console.log(contador());
 console.log(contador());
 console.log(contador());
 console.log(contador());
+
+// 1. Concatena dos cadenas de texto
+
+let textOne = "Hola";
+let textTwo = "mundo";
+let combinedText = textOne + textTwo;
+
+console.log(combinedText)
+
+// 2. Muestra la longitud de una cadena de texto
+
+console.log(combinedText.length)
+
+// 3. Muestra el primer y último carácter de un string
+
+console.log(`1: ${combinedText[0]} 2: ${combinedText[(combinedText.length) - 1]}`)
+
+// 4. Convierte a mayúsculas y minúsculas un string
+
+let upperText = textOne.toUpperCase();
+let lowerText = textOne.toLowerCase();
+
+console.log(upperText, lowerText)
+
+// 5. Crea una cadena de texto en varias líneas
+
+let textMultiline = `Holaaa como
+estas ;)`;
+
+console.log(textMultiline)
+
+// 6. Interpola el valor de una variable en un string
+
+let myName = "Juan Diego";
+let age = 18;
+let gretting = "Hola! " + myName + " tienes " + age + " años!";
+
+console.log(gretting)
+
+// 7. Reemplaza todos los espacios en blanco de un string por guiones
+
+let textWithSpace = "Holaaa como estas el dia de hoy?";
+
+let textWithoutSpace = textWithSpace.replaceAll(" ", "_");
+console.log(textWithoutSpace);
+
+// 8. Comprueba si una cadena de texto contiene una palabra concreta
+
+textWithSpace.includes("como") ? console.log("Tiene la palabra 'como'") 
+                               : console.log("No tiene 'como'")
+
+// 9. Comprueba si dos strings son iguales
+
+console.log(textOne == textTwo);
+
+// 10. Comprueba si dos strings tienen la misma longitud
+
+console.log(textOne.length == textTwo.length);
+
