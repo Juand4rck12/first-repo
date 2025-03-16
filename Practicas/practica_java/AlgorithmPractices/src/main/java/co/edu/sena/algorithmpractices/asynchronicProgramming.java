@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 /**
  * Fecha: Inicie el 25/02/2025
  * @author Juan Diego Orrego Vargas
- * Objetivo: Practicar algoritmos de programación, usando Java
+ * Objetivo: Practicar programación asincrona, usando Java
  */
 
-public class AlgorithmPractices {
+public class AsynchronicProgramming {
     public static void main(String[] args) throws InterruptedException {
         
         Thread thread = new Thread(() -> {
