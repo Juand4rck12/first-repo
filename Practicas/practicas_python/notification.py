@@ -1,9 +1,12 @@
-import requests
+import requests, os
+from dotenv import load_dotenv, dotenv_values 
 from datetime import datetime
 
+load_dotenv()
+
 # 📌 Configuración
-BOT_TOKEN = "7819735652:AAEriqem4hJRaxcDtVG02c82sdx-Uievc9g"
-CHAT_ID = "1458053118"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 
 # 📌 Lista de 30 verbos irregulares
 verbs = [
