@@ -13,6 +13,10 @@ public class AlgorithmForPractices {
         tableofmultiply(5);
     }
     
+    /**
+     * Muestra en pantalla la tabla de multiplicar de un número dado
+     * @param num entero
+     */
     public static void tableofmultiply(int num) {
         
         String message = "";
