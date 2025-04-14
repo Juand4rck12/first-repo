@@ -298,6 +298,7 @@ public class SystemView extends javax.swing.JFrame {
         jLabel62 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         table_all_sales = new javax.swing.JTable();
+        jButtonPrint = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
@@ -1721,6 +1722,10 @@ public class SystemView extends javax.swing.JFrame {
 
         jPanel10.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 910, 180));
 
+        jButtonPrint.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonPrint.setText("Imprimir");
+        jPanel10.add(jButtonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 30, 105, 30));
+
         jTabbedPane1.addTab("Reportes", jPanel10);
 
         jPanel11.setBackground(new java.awt.Color(152, 202, 63));
@@ -1921,6 +1926,7 @@ public class SystemView extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmb_supplier_city;
     public javax.swing.JTable customers_table;
     public javax.swing.JTable employees_table;
+    public javax.swing.JButton jButtonPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
