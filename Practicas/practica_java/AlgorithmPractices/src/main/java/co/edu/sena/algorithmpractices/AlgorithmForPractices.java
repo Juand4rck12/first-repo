@@ -2,6 +2,8 @@ package co.edu.sena.algorithmpractices;
 
 import co.edu.sena.algorithmpractices.utils.MessageUtils;
 
+import javax.swing.*;
+
 /**
  * Fecha: Inicie el 25/02/2025
  * @author Juan Diego Orrego Vargas
@@ -10,7 +12,16 @@ import co.edu.sena.algorithmpractices.utils.MessageUtils;
 
 public class AlgorithmForPractices {
     public static void main(String[] args) {
-        tableofmultiply(5);
+//        tableofmultiply(5);
+
+        String password = JOptionPane.showInputDialog("Digite una contraseña:");
+
+        if (password.length() >= 8 && password.contains("@")) {
+            JOptionPane.showMessageDialog(null, "Contraseña segura tiene " +
+                                            password.length() + " cantidad de caracteres");
+        } else {
+            JOptionPane.showMessageDialog(null, "Contraseña insegura");
+        }
     }
     
     /**

@@ -1,8 +1,10 @@
+import fs from 'fs';
+
 // Ver posibilidades de combinacion de strings
 const list = ['manzana', 'pera', 'uva', 'sandia'];
 
 function solution(list) {
-    result = [];
+    let result = [];
     for (let i = 0; i < list.length; i++) {
         for (let j = 0; j < list.length; j++) {
             result.push(list[i], list[j]);
@@ -372,4 +374,28 @@ console.log(textOne == textTwo);
 // 10. Comprueba si dos strings tienen la misma longitud
 
 console.log(textOne.length == textTwo.length);
+
+// Buffers
+let buffer = Buffer.alloc(1); // Que guarde un espacio
+console.log(buffer) // <Buffer 00> 00 Es un espacio dentro del Buffer
+
+buffer = Buffer.alloc(4) // Guarda 4 espacios
+console.log(buffer) // <Buffer 00 00 00 00> Guarda 4 espacios en el Buffer
+
+buffer = Buffer.from([1, 2, 3, 4, 5]) // En cada espacio asignamos un valor
+console.log(buffer) // <Buffer 01 02 03 04 05>
+
+console.log(Buffer.alloc(15)) // Buffer de 15 posiciones
+
+// Stream: Podria definirse como una cinta transportadora que comunica dos puntos para 
+// intercambiar datos. Los datos mencionados se descomponen en chunks (porciones).
+
+// let data = '';
+
+// let readableStream = fs.createReadStream(__dirname + '/input.txt');
+// // Chunk -> trocito 
+
+// readableStream.on('data', function (chunk) {
+//     console.log(chunk)
+// })
 
