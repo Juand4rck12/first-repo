@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package co.edu.sena.matrices;
+package co.edu.sena.dataStructures;
 
 /**
  * Fecha: 24/11/2024
