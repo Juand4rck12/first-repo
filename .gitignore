@@ -8,3 +8,69 @@ node_modules
 /Practicas/practica_java/Assigment3JavaSwing/target/
 /Practicas/practica_java/TestLombok/target/
 /Practicas/practica_java/AlgorithmPractices/target/
+/Practicas/practica_java/ApiNativeConnection/target/
+
+# Compiled class files
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Log Files
+*.log
+logs/
+
+# Temporary Files
+*.tmp
+*.temp
+temp/
+
+# IDE specific files and directories
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+target/ # Maven build output
+
+# NetBeans
+nbproject/
+build/
+dist/
+
+# Visual Studio Code
+.vscode/
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+*.bak
+*.swp
+*.orig
+*.rej
+*.swo
+
+# OS generated files
+.DS_Store # macOS
+Thumbs.db # Windows
+desktop.ini # Windows

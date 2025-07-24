@@ -27,17 +27,17 @@ const ENDPOINTS = {
 // }
 
 async function loadRandomMichis() {
-    const res = await fetch(ENDPOINTS.API_URL);
-    const [data] = await res.json();
+    const res = await fetch(ENDPOINTS.API_URL_LIMIT(3));
+    const data = await res.json(); 
 
     console.log(data)
     const imgOne = document.getElementById('img1');
     const imgTwo = document.getElementById('img2');
     const imgThree = document.getElementById('img3');
 
-    imgOne.src = data[0]
-    imgTwo.src = data[1].url
-    imgThree.src = data[2].url
+    imgOne.src = data[0].url;
+    imgTwo.src = data[1].url;
+    imgThree.src = data[2].url;
 }
 
 loadRandomMichis()

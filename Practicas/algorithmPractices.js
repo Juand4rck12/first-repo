@@ -398,4 +398,3 @@ console.log(Buffer.alloc(15)) // Buffer de 15 posiciones
 // readableStream.on('data', function (chunk) {
 //     console.log(chunk)
 // })
-
