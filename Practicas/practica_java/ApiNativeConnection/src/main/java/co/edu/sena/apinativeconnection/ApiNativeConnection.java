@@ -25,16 +25,11 @@ public class ApiNativeConnection {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 StringBuilder response = new StringBuilder();
                 String line = "";
-                int valueIndex = 0;
                 
                 while ((line = reader.readLine()) != null) {
                     response.append(line);
-                    if ("value".equals(line)) {
-                        valueIndex = line.indexOf("value");
-                    }
                 }
                 
-                System.out.println(valueIndex);
                 reader.close();
                 
                 JOptionPane.showMessageDialog(null, response.toString());
