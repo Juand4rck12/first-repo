@@ -101,3 +101,19 @@ for (let i = 0; i < 10; i++) {
     console.log(counter)
     counter += 3
 }
+
+
+// Funciones recursivas
+// Imprimir 3, 2, 1
+
+function recursiveFunction(number) {
+    // Caso base
+    if (number == 1) {
+        console.log(number);
+    } else {
+        console.log(number);
+        recursiveFunction(number - 1);
+    }
+}
+
+recursiveFunction(3)
