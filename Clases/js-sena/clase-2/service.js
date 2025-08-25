@@ -4,6 +4,8 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 // Add this middleware to allow cross-origin requests
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5501'); // Or '*' for all origins
@@ -29,6 +31,24 @@ app.get('/hardwarestore/customers', async (req, res) => {
         res.status(200).json(rows);
 
         // connection.end();
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+});
+
+app.post('/hardware/customers/add', async (req, res) => {
+    const { document, name, phone, address, email } = req.body;
+    try {
+        const [result] = await connection.execute(
+            'INSERT INTO customer (`document`, `name`, `phone`, `address`, `email`) VALUES (?, ?, ?, ?, ?)',
+            [document, name, phone, address, email]
+        );
+        res.status(201).json({
+            message: 'Cliente añadido exitosamente'
+        })
+
     } catch (error) {
         res.status(500).json({
             error: error.message
