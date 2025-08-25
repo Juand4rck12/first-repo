@@ -1,30 +1,41 @@
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
+import express from 'express';
 
-const connection = mysql.createConnection({
+const app = express();
+const port = 3000;
+
+// Add this middleware to allow cross-origin requests
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5501'); // Or '*' for all origins
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
+// Crear la conexion
+const connection = await mysql.createConnection({
     host: 'localhost',
     user: 'developer',
     password: 'developer',
     database: 'hardwarestore_db'
 });
 
-connection.connect((error) => {
-    if (error) {
-        console.error("Ocurrio un error al conectar con la bd: ", error.stack);
-        return;
+
+app.get('/hardwarestore/customers', async (req, res) => {
+    try {
+        const [rows] = await connection.query(
+            'SELECT * FROM customer'
+        );
+        res.status(200).json(rows);
+
+        // connection.end();
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
     }
-    console.log("Conexión exitosa a la bd con ID ", connection.threadId)
 });
 
-
-connection.query("SELECT * FROM customers", (error, results, fields) => {
-    if (error) throw error
-    console.log("Clientes: ", results);
-})
-
-connection.end((error) => {
-    if (error) {
-        console.error("Error al cerrar la conexión ", error.stack);
-        return;
-    }
-    console.log("Conexión a MySQL Cerrada");
+app.listen(port, () => {
+    console.log(`Servidor activo en el puerto ${port}`);
 })
