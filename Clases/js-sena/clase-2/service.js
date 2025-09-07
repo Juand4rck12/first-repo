@@ -6,9 +6,9 @@ const port = 3000;
 
 app.use(express.json());
 
-// Add this middleware to allow cross-origin requests
+// middleware to allow cross-origin requests
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5501'); // Or '*' for all origins
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
@@ -38,7 +38,7 @@ app.get('/hardwarestore/customers', async (req, res) => {
     }
 });
 
-app.post('/hardware/customers/add', async (req, res) => {
+app.post('/hardwarestore/customers/add', async (req, res) => {
     const { document, name, phone, address, email } = req.body;
     try {
         const [result] = await connection.execute(
@@ -49,6 +49,40 @@ app.post('/hardware/customers/add', async (req, res) => {
             message: 'Cliente añadido exitosamente'
         })
 
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+});
+
+app.delete('/hardwarestore/customers/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const [result] = await connection.execute(
+            'DELETE FROM customer WHERE id_customer = ?', [id]
+        );
+        res.status(200).json({
+            message: 'Cliente eliminado exitosamente'
+        })
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+});
+
+app.put('/hardwarestore/customers/:id', async (req, res) => {
+    const { id } = req.params;
+    const { document, name, phone, address, email } = req.body;
+    try {
+        const [result] = await connection.execute(
+          'UPDATE customer SET `document` = ?, `name` = ?, `phone` = ?, `address` = ?, `email` = ? WHERE id_customer = ?',
+          [document, name, phone, address, email, id]
+        );
+        res.status(200).json({
+            message: 'Cliente actualizado exitosamente'
+        })
     } catch (error) {
         res.status(500).json({
             error: error.message
