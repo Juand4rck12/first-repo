@@ -114,43 +114,61 @@ async function deleteCustomer(id) {
 }
 
 // Renderizar tabla de clientes
-function renderCustomerTable(data) {
-    let content = "";
-    data.forEach(customer => {
-        content += `
-            <tr>
-                <td>${customer.document}</td>
-                <td>${customer.name}</td>
-                <td>${customer.phone}</td>
-                <td>${customer.address}</td>
-                <td>${customer.email}</td>
-                <td>
-                    <button type="button" class="btn btn-primary btn-sm btnEditCustomer" data-id="${customer.id_customer}">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger btn-sm btnDeleteCustomer" data-id="${customer.id_customer}">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        `;
-    });
-    tableBody.innerHTML = content;
+function renderCustomerTable() {
+    // Destruir la tabla si ya existe
+    if ($.fn.DataTable.isDataTable('#myTable')) {
+        $('#myTable').DataTable().destroy();
+    }
 
-    document.querySelectorAll(".btnEditCustomer").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            loadCustomerData(id);
-        });
-    });
+    // Limpiar el contenido actual
+    tableBody.innerHTML = '';
 
-    document.querySelectorAll(".btnDeleteCustomer").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            if (confirm('¿Estás seguro de eliminar este cliente?')) {
-                deleteCustomer(id);
+    // Inicializar DataTable
+    const table = $('#myTable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: 'http://localhost:3000/hardwarestore/customers',
+            type: 'GET'
+        },
+        columns: [
+            { data: 'document' },
+            { data: 'name' },
+            { data: 'phone' },
+            { data: 'address' },
+            { data: 'email' },
+            {
+                data: 'id_customer',
+                orderable: false,
+                searchable: false,
+                render: function(data) {
+                    return `
+                        <button type="button" class="btn btn-primary btn-sm btnEditCustomer" data-id="${data}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm btnDeleteCustomer" data-id="${data}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    `;
+                }
             }
-        });
+        ],
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"
+        },
+        drawCallback: function() {
+            $('.btnEditCustomer').on('click', function() {
+                const id = $(this).data('id');
+                loadCustomerData(id);
+            });
+
+            $('.btnDeleteCustomer').on('click', function() {
+                const id = $(this).data('id');
+                if (confirm('¿Estás seguro de eliminar este cliente?')) {
+                    deleteCustomer(id);
+                }
+            });
+        }
     });
 }
 
