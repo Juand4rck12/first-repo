@@ -47,5 +47,44 @@ function diagonalDifference(arr) {
 
 console.log(`Diferencia con el array: ${matriz}: `, diagonalDifference(matriz));
 
-const arr = ["Primero", "Segundo", "Tercero", "Cuarto", "Quinto"];
 // console.log(arr[arr.length - 1]) // acceder al ultimo elemento
+
+
+/* ===================================================================== */
+console.log("")
+
+const arr = [1, 1, 0, -1, -1];
+
+function plusMinus(arr) {
+    const totalLength = arr.length;
+    let positives = 0, negatives = 0, ceros = 0;
+    for (let i = 0; i < totalLength; i++) {
+        if (arr[i] > 0) positives++;
+        if (arr[i] < 0) negatives++;
+        if (arr[i] == 0) ceros++;
+    }
+
+    console.log((positives / totalLength).toFixed(6));
+    console.log((negatives / totalLength).toFixed(6));
+    console.log((ceros / totalLength).toFixed(6));
+}
+
+plusMinus(arr);
+
+/* ================== LLAMADAS A API CON FETCH | ASYNC - AWAIT ================== */
+async function getData(url) {
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log("Data original: ", data)
+    console.log(`${data.setup} ${data.punchline}`)
+}
+
+const JOKES_API = "https://official-joke-api.appspot.com/random_joke";
+
+await getData(JOKES_API);
+
+console.log("\nFetch con promesas:")
+fetch(JOKES_API)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
