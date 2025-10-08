@@ -75,5 +75,7 @@ build/
 Thumbs.db # Windows
 desktop.ini # Windows
 
+venv
+venv/
 .venv
 .venv/
