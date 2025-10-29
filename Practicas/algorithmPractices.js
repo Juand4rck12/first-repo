@@ -398,3 +398,43 @@ console.log(Buffer.alloc(15)) // Buffer de 15 posiciones
 // readableStream.on('data', function (chunk) {
 //     console.log(chunk)
 // })
+
+/* SCRIPT PARA RESPUESTA AUTOMATICA EN TEST DE ADDA */
+
+// Pegar esto en la consola y ejecutar: responder(45) para responder hasta la pregunta 45
+async function responder(hasta) {
+    const delay = 1000;
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    
+    for (let i = parseInt(document.getElementById("indexQuestion").value); i < hasta; i++) {
+        // Obtener todas las opciones disponibles para la pregunta actual
+        const radios = document.querySelectorAll(`.respuesta_pregunta_${i}`);
+        
+        if (radios.length === 0) {
+            console.warn(`No se encontraron opciones para la pregunta ${i + 1}`);
+            continue;
+        }
+        
+        // Seleccionar un radio aleatorio de los disponibles
+        const randomIndex = Math.floor(Math.random() * radios.length);
+        const radioSeleccionado = radios[randomIndex];
+        
+        // Hacer click en el radio seleccionado
+        radioSeleccionado.click();
+        
+        // Extraer la letra de la respuesta del value (última letra después del último '_')
+        const respuestaLetra = radioSeleccionado.value.split('_').pop().toUpperCase();
+        
+        // Actualizar el campo de respuesta
+        document.getElementsByClassName("answer")[i].value = respuestaLetra;
+        document.getElementById('testButton').disabled = false;
+        
+        console.log(`Pregunta ${i + 1}: ${respuestaLetra} (${radios.length} opciones disponibles)`);
+        
+        if (i < hasta - 1) {
+            document.getElementById('testButton').click();
+            await sleep(delay);
+        }
+    }
+    console.log('Listo!');
+}
