@@ -23,6 +23,14 @@ class Persona {
     nombreCompleto() {
         return `${this._nombre} ${this._apellido}`;
     }
+    
+    static saludar() {
+        console.log("Saludos desde método static")
+    }
+
+    static saludar2(persona) {
+        console.log(persona.nombre);
+    }
 }
 
 
@@ -54,3 +62,7 @@ console.log(persona1.nombre); // Get nombre
 let empleado1 = new Empleado('Maria', 'Lopez', 'Sistemas');
 console.log(empleado1)
 console.log(empleado1.nombreCompleto());
+
+// persona1.saludar(); // No es posible usar un método static desde un objeto.
+Persona.saludar();
+Persona.saludar2(persona1);
