@@ -1,0 +1,73 @@
+void main() {
+  // Basic output example
+  print("Hola mundo");
+
+  // Data Types Section
+  // Strings: Mutable text data
+  String name = "Juan Diego";
+  name = "Juan Diego Orrego Vargas";
+  print(name);
+
+  // Numbers: Integers and decimals
+  int myNumber = 1;
+  double myDecimal = 2.0;
+  print(myNumber);
+  print(myDecimal);
+
+  // Booleans: True/false values
+  bool condition = true;
+  bool conditionTwo = false;
+  print(condition);
+  print(conditionTwo);
+
+  // Dynamic: Flexible type that can change
+  dynamic dm = 1;
+  dm = "Hola mundo";
+  dm = true;
+  print(dm);
+
+  // Var: Inferred type, fixed once assigned
+  var dato = 2;
+  // dato = "hola mundo"; // Error: Cannot reassign to different type
+  dato = 3;
+  print(dato);
+
+  // Lists: Collections of items
+  // Typed list for strings
+  List<String> StringList = ["Juan", "Diego"];
+  print(StringList);
+
+  // Dynamic list for mixed types
+  List<dynamic> dynamicList = ["Pepe", 121232];
+  print(dynamicList);
+  dynamicList.add("hola hola");
+  print(dynamicList);
+  dynamicList.removeAt(1);
+  print(dynamicList);
+
+  // Set - ignora repetidos
+  Set datos = Set.from(["Franklin", "Hola mundo", "Franklin"]);
+  print(datos);
+
+  datos.add("blanco");
+  datos.remove("Hola mundo");
+  print(datos);
+  datos.clear();
+  print(datos);
+  // Maps Section: Key-value pairs for storing data
+  var colores = {"color1": "blanco", "color2": "azul"};
+  var colores2 = {"color3": "amarillo"};
+  colores.addAll(colores2); // Merge maps
+  colores.remove("color2"); // Remove a key-value pair
+  // colores.clear(); // Uncomment to clear the map
+  print(colores);
+
+  // Final and Const Section: Immutable variables
+  const nombre = "Juan Diego"; // Compile-time constant, cannot be reassigned
+  // nombre = "hola"; // Error: Cannot reassign a const variable
+  print(nombre);
+
+  // const fecha = DateTime.now(); // Error: Cannot use runtime values for const
+  final fecha = DateTime.now(); // Runtime constant, assigned once
+  print(fecha);
+}
