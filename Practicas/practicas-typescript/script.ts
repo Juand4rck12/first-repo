@@ -131,3 +131,60 @@ interface Persona {
     edad: number;
     saludar(): void;
 }
+
+/* ########## TIPOS ########## */
+// Type básico
+type Numero = number;
+
+// Type básico Objeto literal
+type Persona1 = {
+    nombre: string;
+    edad: number;
+}
+
+// Type con union types
+type Nombre = string | null;
+
+// Type con propiedades opcionales
+type Producto1 = {
+    nombre: string;
+    precio: number;
+    descripcion?: string;
+}
+
+// Type para funciones
+type Comparador1 = {
+    (a: number, b: number): boolean;
+}
+
+// Type para clases (class Types)
+type Persona2 = {
+    nombre: string;
+    edad: number;
+    saludar(): void;
+}
+
+/*****************************************/
+/* EJEMPLOS EN CÓDIGO*/
+
+let estudiasteJavascript: boolean = true;
+
+if (estudiasteJavascript) {
+    console.log("Puedes seguir viendo este curso de TypeScript");
+} else {
+    console.log("Primero tenes que ver el curso de JavaScript");
+}
+
+let interMiami: number = 11;
+let fcDallas: number = 11;
+
+function jugar(equipo1: number, equipo2: number): void {
+    if (equipo1 > equipo2) console.log("Gana inter Miami")
+    if (equipo1 == equipo2) console.log("empatan")
+    if (equipo1 < equipo2) console.log("Gana FC Dallas")
+}
+
+jugar(interMiami, fcDallas);
+
+let arreglo: number[] = [1, 2, 3, 4, 5];
+console.log(arreglo)
