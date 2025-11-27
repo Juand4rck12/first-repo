@@ -70,4 +70,24 @@ void main() {
   // const fecha = DateTime.now(); // Error: Cannot use runtime values for const
   final fecha = DateTime.now(); // Runtime constant, assigned once
   print(fecha);
+
+  // ==============================================================
+
+  print(suma(15, 20));
+  mostrarNombre(nombre: "Juan Diego");
 }
+
+
+// funciones
+int suma(int a, int b) {
+  return a + b;
+}
+
+void mostrarNombre({required String nombre}) {
+  print("Aqui esta $nombre");
+}
+
+
+int resta (int a, int b) => (a - b);
+
+
