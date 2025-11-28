@@ -70,4 +70,66 @@ void main() {
   // const fecha = DateTime.now(); // Error: Cannot use runtime values for const
   final fecha = DateTime.now(); // Runtime constant, assigned once
   print(fecha);
+
+  // ==============================================================
+
+  print(suma(15, 20));
+  mostrarNombre(nombre: "Juan Diego");
+
+  var pikachu = new Pokemon("Pikachu", "Pokemon");
+  print(pikachu);
+
+  var perro = new Animal(nombre: "Martin", especie: "Perruna");
+  print(perro);
+  print(perro.nombre);
+  print(perro.especie);
+}
+
+
+// funciones
+int suma(int a, int b) {
+  return a + b;
+}
+
+void mostrarNombre({required String nombre}) {
+  print("Aqui esta $nombre");
+}
+
+
+int resta (int a, int b) => (a - b);
+
+
+// Clases
+class Pokemon {
+  late String nombre;
+  late String tipo;
+
+  Pokemon(String nombre, String tipo) {
+    this.nombre = nombre;
+    this.tipo = tipo;
+  }
+
+  String toString() {
+    return "nombre: ${this.nombre} - tipo: ${this.tipo}";
+  }
+}
+
+// FORMA MODERNA Y PROFESIONAL (para Flutter):
+class Animal {
+  // Ya no necesitamos 'late' si usamos el constructor correctamente
+  final String nombre;
+  final String especie;
+
+  // Constructor con parámetros nombrados y requeridos (Sintaxis moderna)
+  Animal({required this.nombre, required this.especie});
+
+  @override // Buena práctica indicar que sobreescribes un método
+  String toString() {
+    return "nombre: ${this.nombre} - especie: ${this.especie}";
+  }
+
+  /**
+   * O se puede hacer el toString() asi:
+   * String toString() => "nombre: ${this.nombre} - especie: ${this.especie}";
+   */
 }
