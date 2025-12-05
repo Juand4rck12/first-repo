@@ -15,4 +15,11 @@ const teams: Team[] = [
 ];
 
 const winnerTeams = teams.filter(team => team.points > 31)
-    .forEach(team => console.log(team.name, "clasifico"));
+.forEach(team => console.log(team.name, "clasifico"));
+
+/** SALIDA:
+ * Colombia clasifico
+ * Argentina clasifico
+ * Brasil clasifico
+ * Ecuador clasifico
+ */
